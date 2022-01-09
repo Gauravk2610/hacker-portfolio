@@ -5,7 +5,11 @@ import Typewriter from 'typewriter-effect';
 
 function NewHome() {
     return (
-        <Container>
+        <Container
+            initial={{ x: '100%' }}
+            animate={{ x: 0, transition: { duration: 1 } }}
+            exit={{ x: '-100%', transition: { duration: 1 } }}
+        >
             <Left
                 initial={{ x: '-100%', opacity: 0 }}
                 animate={{ x: 0, opacity: 1, transition: { delay: 0.2, duration: 1 } }}
@@ -42,7 +46,7 @@ function NewHome() {
 export default NewHome
 
 
-const Container = styled.div`
+const Container = styled(motion.div)`
     width: 80vw;
     margin: 6vh auto;
     display: flex;

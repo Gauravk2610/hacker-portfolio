@@ -1,11 +1,25 @@
 import { Close, Dehaze } from '@mui/icons-material'
 import { motion } from 'framer-motion'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 
+const MenuItem = ['Home', 'About', 'Services', 'Resume', 'Blog', 'Travel', 'Contact']
 function Header() {
 
+    const { pathname } = useLocation()
     const [show, setShow] = useState(false)
+    const [active, setActive] = useState('')
+
+
+    useEffect(() =>{ 
+        const URL = (pathname.replace('/', ''));
+        if (URL==='') {
+            return setActive('home')
+        }
+        console.log(URL)
+        setActive(URL)
+    }, [pathname])
 
     return (
         <Container>
@@ -22,34 +36,17 @@ function Header() {
             <Menu show={show}>
                 <ul>
                     <Close onClick={() => setShow(!show)} />
-                    <motion.li
-                        initial={{ x: 100, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1, transition: { delay: 0.2, duration: 1 } }}
-                    className='active'>Home</motion.li>
-                    <motion.li
-                        initial={{ x: 100, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1, transition: { delay: 0.2, duration: 1 } }}
-                    >About</motion.li>
-                    <motion.li
-                        initial={{ x: 100, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1, transition: { delay: 0.2, duration: 1 } }}
-                    >Services</motion.li>
-                    <motion.li
-                        initial={{ x: 100, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1, transition: { delay: 0.2, duration: 1 } }}
-                    >Resume</motion.li>
-                    <motion.li
-                        initial={{ x: 100, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1, transition: { delay: 0.2, duration: 1 } }}
-                    >Blog</motion.li>
-                    <motion.li
-                        initial={{ x: 100, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1, transition: { delay: 0.2, duration: 1 } }}
-                    >Travel</motion.li>
-                    <motion.li
-                        initial={{ x: 100, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1, transition: { delay: 0.2, duration: 1 } }}
-                    >Contact</motion.li>
+                    {
+                        MenuItem.map((item, index) => 
+                            <Link key={index} to={ item=='Home'? '/': item.toLowerCase()}>
+                                <motion.li
+                                    initial={{ x: 100, opacity: 0 }}
+                                    animate={{ x: 0, opacity: 1, transition: { delay: 0.2, duration: 1 } }}
+                                className={` ${item.toLowerCase() === active && 'active'}`}>{item}</motion.li>
+                            </Link>
+                        )
+                    }
+
                 </ul>
             </Menu>
         </Container>
@@ -109,6 +106,11 @@ const Menu = styled.div`
         align-items: center;
         flex-grow: 1;
         justify-content: right;
+        
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
         li {
             padding: 0 1.5vw;
