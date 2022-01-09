@@ -3,6 +3,8 @@ import './App.css';
 import Splash from './pages/Splash';
 import { useState } from 'react';
 import Home from './pages/Home';
+import NewHome from './pages/NewHome';
+import Header from './components/Header';
 
 function App() {
 
@@ -11,7 +13,7 @@ function App() {
   return (
     <div className="App">
       {
-        showSplash ? <Splash setShowSplash={setShowSplash} /> : <Home />
+        showSplash ? <Splash setShowSplash={setShowSplash} /> : <><Header /><NewHome /></>
       }
       
     </div>

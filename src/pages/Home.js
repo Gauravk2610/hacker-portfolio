@@ -5,6 +5,7 @@ import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
+import Typewriter from "typewriter-effect";
 
 function Home() {
     const [click, setClick] = useState(false)
@@ -53,7 +54,20 @@ function Home() {
                     </motion.a>
                 </SocialMedia>
             </LeftBar>
+            <Typewriter 
+                options={{
+                    delay: 0.2
+                    }}
+                    onInit={(typewriter)=> {
+                    typewriter
+                    .typeString("We Dont hack to impress")
+                    .pauseFor(1000)
+                    .start()
+                    }}
+            />
             <Kali 
+                initial={{ opacity: 0, scale: 0.2 }}
+                animate={{ opacity: 1, scale: 1.0, transition: { duration: 0.4, delay: 0.2 } }} 
                 click={click}
                 onClick={() => setClick(!click)}
                 src='https://ih0.redbubble.net/image.208539360.1700/sticker,375x360.png'>
@@ -66,6 +80,7 @@ export default Home
 
 const Container = styled(motion.div)`
     color: white;
+    display: flex;
 `
 
 const LeftBar = styled(motion.div)`
@@ -125,4 +140,10 @@ const Kali = styled(motion.img)`
     /* box-shadow: 0px 0px 20px white;
     border-radius: 200%;
     border: 2px solid black; */
+
+    @media (max-width: 640px) {
+        width:  ${ props => props.click ? '20vw' : '40vw' };
+        top: ${ props => props.click ? '90%' : '50%' };
+        left: ${ props => props.click ? '80%' : '50%' };
+    }
 `
