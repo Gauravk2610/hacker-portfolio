@@ -1,4 +1,5 @@
 import { Close, Dehaze } from '@mui/icons-material'
+import { motion } from 'framer-motion'
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
@@ -8,18 +9,47 @@ function Header() {
 
     return (
         <Container>
-            <Logo>SG</Logo>
-            <Dehaze onClick={setShow} />
+            <Logo
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, transition: {delay: 0.2, duration: 1} }}
+            >SG</Logo>
+            <motion.div
+                initial={{ x: '100%', opacity: 0 }}
+                animate={{ x: 0, opacity: 1, transition: {delay: 0.2, duration: 1} }}
+            >
+                <Dehaze onClick={setShow} />
+            </motion.div>
             <Menu show={show}>
                 <ul>
                     <Close onClick={() => setShow(!show)} />
-                    <li className='active'>Home</li>
-                    <li>About</li>
-                    <li>Services</li>
-                    <li>Resume</li>
-                    <li>Blog</li>
-                    <li>Travel</li>
-                    <li>Contact</li>
+                    <motion.li
+                        initial={{ x: 100, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1, transition: { delay: 0.2, duration: 1 } }}
+                    className='active'>Home</motion.li>
+                    <motion.li
+                        initial={{ x: 100, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1, transition: { delay: 0.2, duration: 1 } }}
+                    >About</motion.li>
+                    <motion.li
+                        initial={{ x: 100, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1, transition: { delay: 0.2, duration: 1 } }}
+                    >Services</motion.li>
+                    <motion.li
+                        initial={{ x: 100, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1, transition: { delay: 0.2, duration: 1 } }}
+                    >Resume</motion.li>
+                    <motion.li
+                        initial={{ x: 100, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1, transition: { delay: 0.2, duration: 1 } }}
+                    >Blog</motion.li>
+                    <motion.li
+                        initial={{ x: 100, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1, transition: { delay: 0.2, duration: 1 } }}
+                    >Travel</motion.li>
+                    <motion.li
+                        initial={{ x: 100, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1, transition: { delay: 0.2, duration: 1 } }}
+                    >Contact</motion.li>
                 </ul>
             </Menu>
         </Container>
@@ -37,7 +67,8 @@ const Container = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: black;
+    background-color: black !important;
+    z-index: 1000000000;
     .MuiSvgIcon-root {
         display: none;
     }
@@ -59,7 +90,7 @@ const Container = styled.div`
 
 `
 
-const Logo = styled.div`
+const Logo = styled(motion.div)`
     font-family: "Agustina Regular";
     font-size: 32px;
     font-weight: 800;
@@ -86,7 +117,7 @@ const Menu = styled.div`
             align-items: center;
             font-size: 20px;
             font-variant: small-caps;
-            transition:  all 200ms ease-in-out;
+            /* transition:  all 200ms ease-in-out; */
         }
         
         li:hover, .active {

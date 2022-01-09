@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React from 'react'
 import styled from 'styled-components'
 import Typewriter from 'typewriter-effect';
@@ -5,7 +6,10 @@ import Typewriter from 'typewriter-effect';
 function NewHome() {
     return (
         <Container>
-            <Left>
+            <Left
+                initial={{ x: '-100%', opacity: 0 }}
+                animate={{ x: 0, opacity: 1, transition: { delay: 0.2, duration: 1 } }}
+            >
                 <Typewriter
                     options={{
                         delay: 75
@@ -26,7 +30,10 @@ function NewHome() {
                     <Desc></Desc> */}
             </Left>
             <Right>
-                <img src="https://preview.colorlib.com/theme/satner/img/banner/xhome-right.png.pagespeed.ic.F5fc5uJEZ3.webp" alt="" />
+                <motion.img 
+                    initial={{ x: "100%", opacity: 0.4 }}
+                    animate={{ x: 0, opacity: 1, transition: { duration: 1.0 } }}
+                    src="https://preview.colorlib.com/theme/satner/img/banner/xhome-right.png.pagespeed.ic.F5fc5uJEZ3.webp" alt="" />
             </Right>
         </Container>
     )
@@ -56,12 +63,12 @@ const Container = styled.div`
 
 `
 
-const Left = styled.div`
+const Left = styled(motion.div)`
     display: flex;
     flex-direction: column;
     margin: 6vh 0;
     font-variant: small-caps;
-    
+    height: 160px;
     #r {
         color: red;
         text-decoration: underline;
