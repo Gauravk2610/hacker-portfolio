@@ -47,6 +47,7 @@ const Container = styled.div`
     }
     
     @media (max-width: 760px) {
+        width: 80vw;
         display: flex;
         .MuiSvgIcon-root {
             display: flex;

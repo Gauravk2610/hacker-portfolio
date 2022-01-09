@@ -47,6 +47,9 @@ const Container = styled.div`
         flex-direction: column;
         align-items: center;
     }
+    @media (max-width: 760px) {
+        width: 80vw;
+    }
     @media (max-width: 420px) {
         width: 80vw;
     }
@@ -133,6 +136,14 @@ const Right = styled.div`
 
     img {
         width: 36vw;
-        min-width: 260px;
+        min-width: 320px;
+    }
+
+    @media(max-width: 640px) {
+        img {
+            max-width:  420px;
+            width: 100%;
+            min-width: 260px;
+        }
     }
 `
