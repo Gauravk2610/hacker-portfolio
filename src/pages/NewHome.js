@@ -68,7 +68,7 @@ const Left = styled(motion.div)`
     flex-direction: column;
     margin: 6vh 0;
     font-variant: small-caps;
-    height: 160px;
+    min-height: 200px;
     #r {
         color: red;
         text-decoration: underline;
