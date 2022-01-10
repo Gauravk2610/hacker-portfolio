@@ -4,25 +4,29 @@ import styled from 'styled-components'
 
 function About() {
     return (
-        <Container
-            initial={{ x: '100%' }}
-            animate={{ x: 0, transition: { duration: 1 } }}
-            exit={{ x: '-100%', transition: { duration: 1 } }}
+        <Main
+        initial={{ x: '100%' }}
+        animate={{ x: 0, transition: { duration: 1 } }}
+        exit={{ x: '-100%', transition: { duration: 1 } }}
         >
-            <Left>
-                <img src="https://guptashubham.com/assets/my-images/shubham-about-1.jpeg" alt="" />
-            </Left>
-            <Right>
-                <Intro>Let’s<br /> Introduce About Myself</Intro>
-                <Desc><span style={{ fontSize: '3.4rem' }}>A</span> passionate, enthusiastic and self-motivated cybersecurity professional having more than five years of experience as an IT security consultant and researcher. I work on multiple cybersecurity domains including Web-App Security, Network Security, Information Security, Ethical Hacking, Vulnerability Testing etc.</Desc>
-                <Desc><span style={{ fontSize: '3.4rem' }}>W</span>ith rich experience of working for different public and private ventures pan India and globally (KSA, UAE, Qatar, Hong Kong), presently I’m working as Assistant Manager in Big4. Academically I’m computer graduate (BCA) and have qualified numerous cybersecurity certifications.</Desc>
-                <Desc><span style={{ fontSize: '3.4rem' }}>N</span>ot only health and fitness enthusiast, travelling is my another forte when there is no hacking. I often manage time for helping those who want to grow or step-into Security Industry.</Desc>
-            </Right>
-        </Container>
+            <Container>
+                <Left>
+                    <img src="https://guptashubham.com/assets/my-images/shubham-about-1.jpeg" alt="" />
+                </Left>
+                <Right>
+                    <Intro>Let’s<br /> Introduce About Myself</Intro>
+                    <Desc><span style={{ fontSize: '3.4rem' }}>A</span> passionate, enthusiastic and self-motivated cybersecurity professional having more than five years of experience as an IT security consultant and researcher. I work on multiple cybersecurity domains including Web-App Security, Network Security, Information Security, Ethical Hacking, Vulnerability Testing etc.</Desc>
+                    <Desc><span style={{ fontSize: '3.4rem' }}>W</span>ith rich experience of working for different public and private ventures pan India and globally (KSA, UAE, Qatar, Hong Kong), presently I’m working as Assistant Manager in Big4. Academically I’m computer graduate (BCA) and have qualified numerous cybersecurity certifications.</Desc>
+                    <Desc><span style={{ fontSize: '3.4rem' }}>N</span>ot only health and fitness enthusiast, travelling is my another forte when there is no hacking. I often manage time for helping those who want to grow or step-into Security Industry.</Desc>
+                </Right>
+            </Container>
+        </Main>
     )
 }
 
 export default About
+
+const Main = styled(motion.div)``
 
 const Container = styled(motion.div)`
     width: 80vw;

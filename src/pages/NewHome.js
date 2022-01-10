@@ -5,46 +5,49 @@ import Typewriter from 'typewriter-effect';
 
 function NewHome() {
     return (
-        <Container
+        <Main
             initial={{ x: '100%' }}
             animate={{ x: 0, transition: { duration: 1 } }}
             exit={{ x: '-100%', transition: { duration: 1 } }}
         >
-            <Left
-                initial={{ x: '-100%', opacity: 0 }}
-                animate={{ x: 0, opacity: 1, transition: { delay: 0.2, duration: 1 } }}
-            >
-                <Typewriter
-                    options={{
-                        delay: 75
-                    }}
-                    onInit={(typewriter)=> {
-                    typewriter
-                    
-                    .typeString("<span class='intro'>Hello</span><br /><span class='name'>I am <span id='r'>Shubham</span> <span id='b'>Gupta</span></span><br /><span class='desc'>Ethical Hacker, Penetration Tester, Bug Hunter, Traveller</span>")
-                    
-                    .pauseFor(1000)
-                    // .deleteAll()
-                    // .typeString("Welcomes You")
-                    .start();
-                    }}
-                />
-                    {/* <Intro>Hello</Intro>
-                    <Name>I am Shubham Gupta</Name>
-                    <Desc></Desc> */}
-            </Left>
-            <Right>
-                <motion.img 
-                    initial={{ x: "100%", opacity: 0.4 }}
-                    animate={{ x: 0, opacity: 1, transition: { duration: 1.0 } }}
-                    src="https://preview.colorlib.com/theme/satner/img/banner/xhome-right.png.pagespeed.ic.F5fc5uJEZ3.webp" alt="" />
-            </Right>
-        </Container>
+            <Container>
+                <Left
+                    initial={{ x: '-100%', opacity: 0 }}
+                    animate={{ x: 0, opacity: 1, transition: { delay: 0.2, duration: 1 } }}
+                >
+                    <Typewriter
+                        options={{
+                            delay: 75
+                        }}
+                        onInit={(typewriter)=> {
+                        typewriter
+                        
+                        .typeString("<span class='intro'>Hello</span><br /><span class='name'>I am <span id='r'>Shubham</span> <span id='b'>Gupta</span></span><br /><span class='desc'>Ethical Hacker, Penetration Tester, Bug Hunter, Traveller</span>")
+                        
+                        .pauseFor(1000)
+                        // .deleteAll()
+                        // .typeString("Welcomes You")
+                        .start();
+                        }}
+                    />
+                        {/* <Intro>Hello</Intro>
+                        <Name>I am Shubham Gupta</Name>
+                        <Desc></Desc> */}
+                </Left>
+                <Right>
+                    <motion.img 
+                        initial={{ x: "100%", opacity: 0.4 }}
+                        animate={{ x: 0, opacity: 1, transition: { duration: 1.0 } }}
+                        src="https://preview.colorlib.com/theme/satner/img/banner/xhome-right.png.pagespeed.ic.F5fc5uJEZ3.webp" alt="" />
+                </Right>
+            </Container>
+        </Main>
     )
 }
 
 export default NewHome
 
+const Main = styled(motion.div)``
 
 const Container = styled(motion.div)`
     width: 80vw;

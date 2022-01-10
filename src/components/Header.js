@@ -38,7 +38,7 @@ function Header() {
                     <Close onClick={() => setShow(!show)} />
                     {
                         MenuItem.map((item, index) => 
-                            <Link key={index} to={ item=='Home'? '/': item.toLowerCase()}>
+                            <Link key={index} onClick={() => setShow(!show)} to={ item=='Home'? '/': item.toLowerCase()}>
                                 <motion.li
                                     initial={{ x: 100, opacity: 0 }}
                                     animate={{ x: 0, opacity: 1, transition: { delay: 0.2, duration: 1 } }}
