@@ -22,42 +22,50 @@ function Header() {
     }, [pathname])
 
     return (
-        <Container>
-            <Logo
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1, transition: {delay: 0.2, duration: 1} }}
-            >SG</Logo>
-            <motion.div
-                initial={{ x: '100%', opacity: 0 }}
-                animate={{ x: 0, opacity: 1, transition: {delay: 0.2, duration: 1} }}
-            >
-                <Dehaze onClick={setShow} />
-            </motion.div>
-            <Menu show={show}>
-                <ul>
-                    <Close onClick={() => setShow(!show)} />
-                    {
-                        MenuItem.map((item, index) => 
-                            <Link key={index} onClick={() => setShow(!show)} to={ item=='Home'? '/': item.toLowerCase()}>
-                                <motion.li
-                                    initial={{ x: 100, opacity: 0 }}
-                                    animate={{ x: 0, opacity: 1, transition: { delay: 0.2, duration: 1 } }}
-                                className={` ${item.toLowerCase() === active && 'active'}`}>{item}</motion.li>
-                            </Link>
-                        )
-                    }
+        <Main>
+            <Container>
+                <Logo
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1, transition: {delay: 0.2, duration: 1} }}
+                >SG</Logo>
+                <motion.div
+                    initial={{ x: '100%', opacity: 0 }}
+                    animate={{ x: 0, opacity: 1, transition: {delay: 0.2, duration: 1} }}
+                >
+                    <Dehaze onClick={setShow} />
+                </motion.div>
+                <Menu show={show}>
+                    <ul>
+                        <Close onClick={() => setShow(!show)} />
+                        {
+                            MenuItem.map((item, index) => 
+                                <Link key={index} onClick={() => setShow(!show)} to={ item=='Home'? '/': item.toLowerCase()}>
+                                    <motion.li
+                                        initial={{ x: 100, opacity: 0 }}
+                                        animate={{ x: 0, opacity: 1, transition: { delay: 0.2, duration: 1 } }}
+                                    className={` ${item.toLowerCase() === active && 'active'}`}>{item}</motion.li>
+                                </Link>
+                            )
+                        }
 
-                </ul>
-            </Menu>
-        </Container>
+                    </ul>
+                </Menu>
+            </Container>
+        </Main>
     )
 }
 
 export default Header
 
-const Container = styled.div`
+const Main = styled.div`
     position: sticky;
     top: 0;
+    background-color: black !important;
+    z-index: 1000000000;
+`
+
+const Container = styled.div`
+
     width: 80vw;
     margin: 0 auto;
     padding: 16px 0;
@@ -137,11 +145,10 @@ const Menu = styled.div`
         right: 0;
         bottom: 0;
         left: 0;
-        height: 100vh;
         display: flex;
         flex: 1;
         flex-direction: column;
-        width: 100vw;
+        width: 100%;
         background-color: black;
         z-index: 1000;
         justify-content: left;
