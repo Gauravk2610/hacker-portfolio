@@ -1,11 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 * {
   /* background-color: black; */
   /* width: 100%;
   height: 100%; */
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 
 }
 
 body {
   color: white;
+}
+
+.App {
+  overflow-x: hidden;
+}
+
+.decorated-text {
+  background: linear-gradient(180deg, #00ff4f 20%, #00ffff 50%, #ff69b4 80%, #4169e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.CircularProgressbar-trail {
+  fill: rgba(0,0,0,0) !important;
+  stroke: #3f3f3f !important;
+  stroke-width: 6 !important;
+}
+
+.CircularProgressbar-path {
+  stroke: url(#gradient) !important;
+  stroke-linecap: square !important;
+  stroke-width: 6 !important;
+}
+
+.CircularProgressbar-text {
+  stroke: url(#gradient) !important;
+  margin-left: 10px !important;
 }

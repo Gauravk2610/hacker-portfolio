@@ -48,6 +48,7 @@ function Splash({setShowSplash}) {
                   console.log("Enter key was pressed. Run your function.");
                   event.preventDefault();
                   setTrigger(true)
+                  sessionStorage.setItem('splash', false)
                   await sleep(1200)
                   setShowSplash(false)
                   // callMyFunction();

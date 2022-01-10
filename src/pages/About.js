@@ -26,7 +26,9 @@ function About() {
 
 export default About
 
-const Main = styled(motion.div)``
+const Main = styled(motion.div)`
+    overflow-x: hidden;
+`
 
 const Container = styled(motion.div)`
     width: 80vw;

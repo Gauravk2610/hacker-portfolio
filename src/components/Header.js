@@ -57,7 +57,7 @@ function Header() {
 
 export default Header
 
-const Main = styled.div`
+const Main = styled(motion.div)`
     position: sticky;
     top: 0;
     background-color: black !important;

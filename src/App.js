@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Splash from './pages/Splash';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Home from './pages/Home';
 import NewHome from './pages/NewHome';
 import Header from './components/Header';
@@ -12,15 +12,27 @@ import AnimatedRoutes from './AnimatedRoutes';
 
 function App() {
 
-  const [showSplash, setShowSplash] = useState(false)
+  const [showSplash, setShowSplash] = useState(sessionStorage.getItem('splash') === 'false' ? false : true )
 
   // const location = useLocation()
+  useEffect(() => {
+    const splash = sessionStorage.getItem('splash')
+    console.log(splash)
+    if (splash === null) {
+      sessionStorage.setItem('splash', true)
+      setShowSplash(true)
+      return
+    }
+    setShowSplash(splash  === 'false' ? false : true )
+
+  }, [])
 
   return (
     <div className="App">
       <Router>
+        { !showSplash && <Header /> }
         <AnimatePresence exitBeforeEnter>
-          <AnimatedRoutes />
+          <AnimatedRoutes showSplash={showSplash} setShowSplash={setShowSplash} />
         </AnimatePresence>
       </Router>
 
