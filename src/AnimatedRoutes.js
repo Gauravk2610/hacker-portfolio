@@ -13,6 +13,7 @@ const AnimatedRoutes = () => {
   
     return (
       <AnimatePresence exitBeforeEnter>
+        { !showSplash && <Header /> }
         <Routes location={location} key={location.pathname}>
             <Route exact path='/' element={showSplash ? <Splash setShowSplash={setShowSplash} /> : <NewHome />} />
             <Route exact path='/about' element={<About />} />

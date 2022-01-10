@@ -19,7 +19,6 @@ function App() {
   return (
     <div className="App">
       <Router>
-        { !showSplash && <Header /> }
         <AnimatePresence exitBeforeEnter>
           <AnimatedRoutes />
         </AnimatePresence>
