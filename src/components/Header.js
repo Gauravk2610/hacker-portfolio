@@ -136,10 +136,12 @@ const Menu = styled.div`
         top: 0;
         right: 0;
         bottom: 0;
+        left: 0;
+        height: 100vh;
         display: flex;
         flex: 1;
         flex-direction: column;
-        width: 100%;
+        width: 100vw;
         background-color: black;
         z-index: 1000;
         justify-content: left;
