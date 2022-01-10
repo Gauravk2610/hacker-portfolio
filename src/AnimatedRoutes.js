@@ -9,7 +9,7 @@ import { AnimatePresence } from 'framer-motion';
 
 const AnimatedRoutes = () => {
     const location = useLocation();
-    const [showSplash, setShowSplash] = useState(false)
+    const [showSplash, setShowSplash] = useState(true)
   
     return (
       <AnimatePresence exitBeforeEnter>
