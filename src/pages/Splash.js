@@ -70,7 +70,7 @@ function Splash({setShowSplash}) {
             <Wrap>
                 <Typewriter
                     options={{
-                    delay: 0.2
+                    delay: 0.1
                     }}
                     onInit={(typewriter)=> {
                     getData()
