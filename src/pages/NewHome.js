@@ -14,22 +14,41 @@ function NewHome() {
                 <Left
                     initial={{ x: '-100%', opacity: 0 }}
                     animate={{ x: 0, opacity: 1, transition: { delay: 0.2, duration: 1 } }}
-                >
-                    <Typewriter
-                        options={{
-                            delay: 75
-                        }}
-                        onInit={(typewriter)=> {
-                        typewriter
-                        
-                        .typeString("<span class='intro'>Hello</span><br /><span class='name'>I am <span id='r'>Shubham</span> <span id='b'>Gupta</span></span><br /><span class='desc'>Ethical Hacker, Penetration Tester, Bug Hunter, Traveller</span>")
-                        
-                        .pauseFor(1000)
-                        // .deleteAll()
-                        // .typeString("Welcomes You")
-                        .start();
-                        }}
-                    />
+                >   
+                    <IntroSection>
+                        <Typewriter
+                            options={{
+                                delay: 75
+                            }}
+                            onInit={(typewriter)=> {
+                            typewriter
+                            
+                            .typeString("<span class='intro'>Hello</span><br /><span class='name'>I am <span id='r'>Shubham</span> <span id='b'>Gupta</span></span><br /><span class='desc'> Penetration Tester, Bug Hunter, Traveller</span>")
+                            
+                            .pauseFor(1000)
+                            // .deleteAll()
+                            // .typeString("Welcomes You")
+                            .start();
+                            }}
+                        />
+                    </IntroSection>
+                    <SocialMedia>
+                        <a href="https://discord.gg/NeGvnmuB/">
+                            <img align="left" alt="Abhishek's Discord" src="https://github.com/hackerspider1/hackerspider1/blob/main/discord.svg?raw=true" />
+                        </a>
+                        <a href="https://twitter.com/hackerspider1">
+                            <img align="left" alt="Shubham Gupta | Twitter" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/twitter.svg?raw=true" />
+                        </a>
+                        <a href="https://www.linkedin.com/in/hackerspider1/">
+                            <img align="left" alt="Shubham LinkedIN" width="22px" src="https://github.com/hackerspider1/hackerspider1/blob/main/linkedin.svg?raw=true" />
+                        </a>
+                        <a href="https://www.facebook.com/hackerspider1/">
+                            <img align="left" alt="Shubham Facebook" width="22px" src="https://github.com/hackerspider1/hackerspider1/blob/main/facebook.svg?raw=true" />
+                        </a>
+                        <a href="https://open.spotify.com/playlist/4VFPUarxug3APc05glP2ou?si=GDLtHkdyRnuaEHALKkdi5w">
+                            <img align="left" alt="Shubham Spotify" width="22px" src="https://github.com/hackerspider1/hackerspider1/blob/main/spotify.svg?raw=true" />
+                        </a>
+                    </SocialMedia>
                         {/* <Intro>Hello</Intro>
                         <Name>I am Shubham Gupta</Name>
                         <Desc></Desc> */}
@@ -119,6 +138,13 @@ const Left = styled(motion.div)`
     }
 `
 
+const IntroSection = styled.div`
+    height: 300px;
+    @media (max-width: 640px) {
+        height: 260px;
+    }
+`
+
 const Intro = styled.div`
     font-size: 6vh;
     position: relative;
@@ -151,7 +177,7 @@ const Desc = styled.div`
 const Right = styled.div`
 
     img {
-        width: 36vw;
+        width: 32vw;
         min-width: 320px;
     }
 
@@ -162,4 +188,16 @@ const Right = styled.div`
             min-width: 260px;
         }
     }
+`
+
+const SocialMedia = styled.div`
+
+    display: flex;
+    justify-content: space-between;
+    max-width: 300px;
+
+    img {
+        width: 32px;
+    }
+
 `

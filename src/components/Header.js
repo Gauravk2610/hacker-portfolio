@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 
-const MenuItem = ['Home', 'About', 'Services', 'Resume', 'Blog', 'Travel', 'Contact']
+const MenuItem = ['Home', 'About', 'Resume', 'Blog', 'Travel', 'Contact']
 function Header() {
 
     const { pathname } = useLocation()
