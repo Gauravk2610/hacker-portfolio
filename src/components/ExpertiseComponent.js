@@ -1,26 +1,33 @@
 import React from 'react'
 import styled from 'styled-components'
 import FmdGoodIcon from '@mui/icons-material/FmdGood';
+import { Fade } from 'react-reveal';
 
 function ExpertiseComponent({ title, timeline, work }) {
     return (
             <SectionWrap>
                 <Left className='left-section'>
-                    <LeftWrap className='left-wrap'>
-                        <LeftDate>{timeline}</LeftDate>
-                        <PTitle>{title}</PTitle>
-                        {work.map((item, index) => 
-                            <p><span className='dot'>·</span><div>{item}</div></p>
-                        )}
-                    </LeftWrap>
+                    <Fade bottom>
+                        <LeftWrap className='left-wrap'>
+                            <LeftDate>{timeline}</LeftDate>
+                            <PTitle>{title}</PTitle>
+                            {work.map((item, index) => 
+                                <p><span className='dot'>·</span><div>{item}</div></p>
+                            )}
+                        </LeftWrap>
+                    </Fade>
                 </Left>
-                <Middle>
-                    <Ball>
-                        <FmdGoodIcon />
-                    </Ball>
-                </Middle>
+                <Fade bottom>
+                    <Middle>
+                        <Ball>
+                            <FmdGoodIcon />
+                        </Ball>
+                    </Middle>
+                </Fade>
                 <Right className='right-section'>
-                    <Date>{timeline}</Date>
+                    <Fade bottom>
+                        <Date>{timeline}</Date>
+                    </Fade>
                 </Right>
             </SectionWrap>
     )
@@ -135,6 +142,7 @@ const PTitle = styled.div`
 
 const Middle = styled.div`
     position: relative;
+    height: 100%;
     /* top: 0;
     left: 0;
     right: 0;

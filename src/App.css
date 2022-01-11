@@ -37,3 +37,7 @@ body {
   stroke: url(#gradient) !important;
   margin-left: 10px !important;
 }
+
+.react-reveal {
+  animation-duration: 2000ms !important;
+}
