@@ -39,6 +39,10 @@ const SkillList = [
         title: 'Network Security Testing',
         count: 80
     },
+    {
+        title: 'Red Teaming',
+        count: 70
+    },
 ]
 
 function Skills() {
@@ -129,7 +133,7 @@ const SkillCard = styled.div`
 `
 
 const Circle = styled(motion.div)`
-    max-width: 160px;
+    max-width: 140px;
     width: 100%;
     min-width: 10px;
     padding: 0 24px;
