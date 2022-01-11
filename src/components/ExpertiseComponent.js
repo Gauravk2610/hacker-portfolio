@@ -7,6 +7,7 @@ function ExpertiseComponent({ title, timeline, work }) {
             <SectionWrap>
                 <Left className='left-section'>
                     <LeftWrap className='left-wrap'>
+                        <Date>{timeline}</Date>
                         <PTitle>{title}</PTitle>
                         {work.map((item, index) => 
                             <p><span className='dot'>·</span><div>{item}</div></p>
@@ -81,6 +82,10 @@ const Left = styled.div`
         margin-right: 4px;
         font-size: 18px;
     }
+   
+    @media(max-width: 640px) {
+        padding: 0 10px 26px 10px;
+    }
 `
 
 const LeftWrap = styled.div`
@@ -94,6 +99,9 @@ const LeftWrap = styled.div`
         height: 2px;
         background-color: green;
         margin-top: 16px;
+    }
+    @media(max-width: 640px) {
+        max-width: 100%;
     }
 `
 
@@ -135,9 +143,13 @@ const Ball = styled.div`
 
 
 const Right = styled.div`
-    /* width: 100%; */
+    width: 100%;
     box-sizing: border-box;
     display: flex;
+    @media(max-width: 640px) {
+        width: auto;
+        display: none;
+    }
 `
 
 const Date = styled.div`
@@ -147,4 +159,9 @@ const Date = styled.div`
     margin: 0 48px;
     font-size: 18px;
     color: gray;
+    @media(max-width: 640px) {
+        margin: 0 12px 0 0; 
+        width: 40px;
+        font-size: 14px;
+    }
 `

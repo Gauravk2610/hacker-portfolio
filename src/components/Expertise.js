@@ -30,7 +30,7 @@ const ExperienceList = [
     },
     {
         title: 'Assistant Manager - Risk Advisory',
-        timeline: 'Current | Deloitte.',
+        timeline: 'Current',
         work: [
             'Red Teaming',
             'Conducting Web application Penetration Testing Based on OWASP Top 10 Flaws.',
