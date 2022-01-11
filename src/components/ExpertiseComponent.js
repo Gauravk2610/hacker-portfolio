@@ -44,6 +44,11 @@ const SectionWrap = styled.div`
             justify-content: flex-end;
         }
     }
+    :last-child {
+        .left-section {
+            padding-bottom: 0;
+        }
+    }
 
     @media(max-width: 640px) {
         :nth-child(odd) {
