@@ -1,11 +1,36 @@
 import { motion } from 'framer-motion'
 import React from 'react'
 import styled from 'styled-components'
-
+import ExpertiseComponent from './ExpertiseComponent';
 const ExperienceList = [
     {
+        title: 'Pyramid Cyber Security & Forensic Pvt. Limited.',
+        timeline: '2016',
+        work: [
+            'Conducting Web application penetration testing based on OWASP Top 10 flaws.',
+
+        ]
+    },
+    {
+        title: 'ISYX Technologies',
+        timeline: '2017',
+        work: [
+            'Conducting Web application penetration testing based on OWASP Top 10 flaws.',
+            'Config Review.',
+            'Mobile Penetration testing'
+        ]
+    },
+    {
+        title: 'Broctagon Fintech Group',
+        timeline: '2018',
+        work: [
+            'Conducting Web application penetration testing based on OWASP Top 10 flaws.',
+            'Android Penetration testing'
+        ]
+    },
+    {
         title: 'Assistant Manager - Risk Advisory',
-        timeline: '2018 - Current | Deloitte.',
+        timeline: 'Current | Deloitte.',
         work: [
             'Red Teaming',
             'Conducting Web application Penetration Testing Based on OWASP Top 10 Flaws.',
@@ -14,46 +39,21 @@ const ExperienceList = [
             'Source Code Review'
         ]
     },
-    {
-        title: 'Broctagon Fintech Group',
-        timeline: '2017 - 2018 | Broctagon Fintech Group.',
-        work: [
-            'Conducting Web application penetration testing based on OWASP Top 10 flaws.',
-            'Android Penetration testing'
-        ]
-    },
-    {
-        title: 'ISYX Technologies',
-        timeline: '2016 - 2017| ISYX Technologies.',
-        work: [
-            'Conducting Web application penetration testing based on OWASP Top 10 flaws.',
-            'Config Review.',
-            'Mobile Penetration testing'
-        ]
-    },
-    {
-        title: 'Pyramid Cyber Security & Forensic Pvt. Limited.',
-        timeline: '2015 - 2016 | Pyramid Cyber Security & Forensic Pvt. Limited...',
-        work: [
-            'Conducting Web application penetration testing based on OWASP Top 10 flaws.',
-
-        ]
-    },
 ]
 
 const EducationList = [
-    {
-        title: 'Bachelor of Computer Application',
-        timeline: '2012-2015',
-        work: [
-            'Jiwaji University, Gwalior, MP, India',
-        ]
-    },
     {
         title: 'High School',
         timeline: '2012',
         work: [
             'MP Board Govt. Boys School, MP, India',
+        ]
+    },
+    {
+        title: 'Bachelor of Computer Application',
+        timeline: '2015',
+        work: [
+            'Jiwaji University, Gwalior, MP, India',
         ]
     },
 ]
@@ -63,7 +63,55 @@ function Expertise() {
         <Container>
             <Title>My Expertises</Title>
             <Wrap>
-                <Experience>
+                {
+                    EducationList.map((item, index) => 
+                        <ExpertiseComponent 
+                            key={index}
+                            title={item.title}
+                            timeline={item.timeline}
+                            work={item.work}
+                        />
+                    )
+                }
+                {
+                    ExperienceList.map((item, index) => 
+                        <ExpertiseComponent 
+                            key={index}
+                            title={item.title}
+                            timeline={item.timeline}
+                            work={item.work}
+                        />
+                    )
+                }
+                {/* <SectionWrap>
+                    <Left>
+                        <PTitle>High School</PTitle>
+                        <p>MP Board Govt. Boys School, MP, India</p>
+                    </Left>
+                    <Middle>
+                        <Ball>
+                            <FmdGoodIcon />
+                        </Ball>
+                    </Middle>
+                    <Right>
+                        <Date>2012</Date>
+                    </Right>
+                </SectionWrap>
+                <SectionWrap>
+                    <Left>
+                        <Date>2012</Date>
+                    </Left>
+                    <Middle>
+                        <Ball>
+                            <FmdGoodIcon />
+                        </Ball>
+                    </Middle>
+                    <Right>
+                        <PTitle>High School</PTitle>
+                        <p>MP Board Govt. Boys School, MP, India</p>
+                    </Right>
+                </SectionWrap> */}
+                {/* <Experience>
                     <Heading>My Experience</Heading>
                     {
                         ExperienceList.map((data, index) => 
@@ -95,7 +143,7 @@ function Expertise() {
                             </ProfileCard>
                         )
                     }
-                </Education>
+                </Education> */}
             </Wrap>
         </Container>
     )
@@ -115,12 +163,84 @@ const Title = styled(motion.div)`
 `
 
 const Wrap = styled(motion.div)`
-    display: flex;
+    /* display: flex; */
     margin: 26px 0;
-    
+    /* justify-content: space-between; */
+    position: relative;
     @media(max-width: 760px) {
         flex-direction: column;
     }
+`
+
+const SectionWrap = styled.div`
+    display: flex;
+    justify-content: space-between;
+
+`
+
+const Left = styled.div`
+    width: 100%;
+    padding: 24px 0;
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-end; */
+    p {
+        color: rgba(255,255,255,.5);
+        font-weight: 300;
+        margin: 1.0rem 0;
+        margin-bottom: 0.5rem;
+    }
+`
+
+const PTitle = styled.div`
+    font-weight: 500;
+    font-size: 24px;
+`
+
+const Middle = styled.div`
+    position: relative;
+    /* top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; */
+    display: flex;
+    justify-content: center;
+    &:before {  
+        position: absolute;
+
+        width: 2px;
+        content: '';
+        height: 100%;
+        background-color: green;
+        border-radius: 40px;
+    }
+`
+
+const Ball = styled.div`
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-color: green;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+`
+
+
+const Right = styled.div`
+    width: 100%;
+    box-sizing: border-box;
+`
+
+const Date = styled.div`
+    height: 40px;
+    display: flex;
+    align-items: center;
+    margin-left: 48px;
+    font-size: 18px;
+    color: gray;
 `
 
 const Experience = styled(motion.div)`
