@@ -7,7 +7,7 @@ function ExpertiseComponent({ title, timeline, work }) {
             <SectionWrap>
                 <Left className='left-section'>
                     <LeftWrap className='left-wrap'>
-                        <Date>{timeline}</Date>
+                        <LeftDate>{timeline}</LeftDate>
                         <PTitle>{title}</PTitle>
                         {work.map((item, index) => 
                             <p><span className='dot'>·</span><div>{item}</div></p>
@@ -91,6 +91,24 @@ const Left = styled.div`
     @media(max-width: 640px) {
         padding: 0 10px 26px 10px;
     }
+`
+
+const LeftDate = styled.div`
+    height: 40px;
+    display: flex;
+    align-items: center;
+    margin: 0 48px;
+    font-size: 18px;
+    color: gray;
+    display: none;
+    @media(max-width: 640px) {
+        margin: 0 12px 0 0; 
+        width: 40px;
+        font-size: 14px;
+        display: inline-flex;
+    }
+
+
 `
 
 const LeftWrap = styled.div`
