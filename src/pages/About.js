@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import React from 'react'
 import styled from 'styled-components'
+import Image from '../assests/ShubhamGupta.PNG'
 
 function About() {
     return (
@@ -11,7 +12,7 @@ function About() {
         >
             <Container>
                 <Left>
-                    <img src="https://guptashubham.com/assets/my-images/shubham-about-1.jpeg" alt="" />
+                    <img src={Image} alt="" />
                 </Left>
                 <Right>
                     {/* <Intro>Let’s<br /> Introduce About Myself</Intro> */}
@@ -52,10 +53,13 @@ const Container = styled(motion.div)`
 `
 
 const Left = styled(motion.div)`
-    max-width: 400px;
+    max-width: 600px;
+    width: 100%;
     /* min-width: 400px; */
     img {
-        /* max-width: 400px; */
+        max-height: 420px;
+        height: 100%;
+        object-fit: contain;
         width: 100%;
         min-width: 260px;
     }
