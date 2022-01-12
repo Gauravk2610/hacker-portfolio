@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import React from 'react'
 import styled from 'styled-components'
 import Typewriter from 'typewriter-effect';
+import user from '../assests/user.png'
 
 function NewHome() {
     return (
@@ -57,7 +58,7 @@ function NewHome() {
                     <motion.img 
                         initial={{ x: "100%", opacity: 0.4 }}
                         animate={{ x: 0, opacity: 1, transition: { duration: 1.0 } }}
-                        src="https://preview.colorlib.com/theme/satner/img/banner/xhome-right.png.pagespeed.ic.F5fc5uJEZ3.webp" alt="" />
+                        src={user} alt="" />
                 </Right>
             </Container>
         </Main>

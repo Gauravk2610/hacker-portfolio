@@ -8,6 +8,7 @@ import About from './pages/About';
 import { AnimatePresence } from 'framer-motion';
 import Resume from './pages/Resume';
 import Travel from './pages/Travel';
+import Contact from './pages/Contact';
 
 const AnimatedRoutes = ({showSplash, setShowSplash}) => {
     const location = useLocation();
@@ -26,6 +27,7 @@ const AnimatedRoutes = ({showSplash, setShowSplash}) => {
       <AnimatePresence exitBeforeEnter>
         <Routes location={location} key={location.pathname}>
             <Route exact path='/' element={showSplash ? <Splash setShowSplash={setShowSplash} /> : <NewHome />} />
+            <Route exact path='/contact' element={<ProtectedRoute Component={Contact} />} />
             <Route exact path='/about' element={<ProtectedRoute Component={About} />} />
             <Route exact path='/resume' element={<ProtectedRoute Component={Resume} />} />
             <Route exact path='/travel' element={<ProtectedRoute Component={Travel} />} />
