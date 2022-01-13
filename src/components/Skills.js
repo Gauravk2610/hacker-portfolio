@@ -133,7 +133,7 @@ const SkillCard = styled.div`
 `
 
 const Circle = styled(motion.div)`
-    max-width: 140px;
+    max-width: 120px;
     width: 100%;
     min-width: 10px;
     padding: 0 24px;
