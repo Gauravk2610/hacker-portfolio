@@ -9,6 +9,7 @@ import { AnimatePresence } from 'framer-motion';
 import Resume from './pages/Resume';
 import Travel from './pages/Travel';
 import Contact from './pages/Contact';
+import Blog from './pages/Blog';
 
 const AnimatedRoutes = ({showSplash, setShowSplash}) => {
     const location = useLocation();
@@ -30,6 +31,7 @@ const AnimatedRoutes = ({showSplash, setShowSplash}) => {
             <Route exact path='/contact' element={<ProtectedRoute Component={Contact} />} />
             <Route exact path='/about' element={<ProtectedRoute Component={About} />} />
             <Route exact path='/resume' element={<ProtectedRoute Component={Resume} />} />
+            <Route exact path='/blog' element={<ProtectedRoute Component={Blog} />} />
             <Route exact path='/travel' element={<ProtectedRoute Component={Travel} />} />
         </Routes>
       </AnimatePresence>
