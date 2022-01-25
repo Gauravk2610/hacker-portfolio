@@ -18,22 +18,24 @@ function Page403() {
   return (
     <Container>
       <h1>403</h1>
-      <Typewriter
-        options={{
-        delay: 0.1
-        }}
-        onInit={(typewriter)=> {
+      <ContentWrapper>
+        <Typewriter
+          options={{
+          delay: 0.1
+          }}
+          onInit={(typewriter)=> {
 
-        typewriter
-        
-        .typeString(data)
-        
-        .pauseFor(1000)
-        // .deleteAll()
-        // .typeString("Welcomes You")
-        .start();
-        }}
-    />
+          typewriter
+          
+          .typeString(data)
+          
+          .pauseFor(1000)
+          // .deleteAll()
+          // .typeString("Welcomes You")
+          .start();
+          }}
+      />
+      </ContentWrapper>
     </Container>
     );
 }
@@ -69,7 +71,13 @@ h1 {
     color: #ffffff26;
     text-shadow: 0 0 50px rgb(0 0 0 / 7%);
     top: 0;
-    transform: translateY(-60%) translateX(5%);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* transform: translateY(-50%) translateX(5%); */
     font-family: "Montserrat", monospace;
 }
 
@@ -91,4 +99,13 @@ p {
   color: #81a2be;
 }
 
+`
+
+const ContentWrapper = styled(motion.div)`
+  display: flex;
+  min-height: 80vh;
+  max-width: 80vw;
+  margin-top: 6vh;
+  /* align-items: center; */
+  /* justify-content: center; */
 `
