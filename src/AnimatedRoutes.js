@@ -10,6 +10,7 @@ import Resume from './pages/Resume';
 import Travel from './pages/Travel';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
+import Page403 from './pages/Page403';
 
 const AnimatedRoutes = ({showSplash, setShowSplash}) => {
     const location = useLocation();
@@ -33,6 +34,7 @@ const AnimatedRoutes = ({showSplash, setShowSplash}) => {
             <Route exact path='/resume' element={<ProtectedRoute Component={Resume} />} />
             <Route exact path='/blog' element={<ProtectedRoute Component={Blog} />} />
             <Route exact path='/travel' element={<ProtectedRoute Component={Travel} />} />
+            <Route exact path='/403' element={<ProtectedRoute Component={Page403} />} />
         </Routes>
       </AnimatePresence>
     );
