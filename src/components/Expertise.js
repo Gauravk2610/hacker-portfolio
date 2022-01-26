@@ -29,14 +29,22 @@ const ExperienceList = [
         ]
     },
     {
-        title: 'Assistant Manager - Risk Advisory',
-        timeline: 'Current',
+        title: 'Delloite India',
+        timeline: '2018',
         work: [
             'Red Teaming',
             'Conducting Web application Penetration Testing Based on OWASP Top 10 Flaws.',
             'Conducting Android Application Penetration Testing.',
             'Conducting iOS Application Penetration Testing.',
             'Source Code Review'
+        ]
+    },
+    {
+        title: 'Delloite USI',
+        timeline: 'current',
+        work: [
+            'Red Teaming',
+            'Purple Teaming'
         ]
     },
 ]
@@ -61,7 +69,7 @@ const EducationList = [
 function Expertise() {
     return (
         <Container>
-            <Title>My Expertises</Title>
+            <Title>My Expertise</Title>
             <Wrap>
                 {
                     EducationList.map((item, index) => 

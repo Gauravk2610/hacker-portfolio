@@ -1,3 +1,4 @@
+import { Downloading } from '@mui/icons-material'
 import { motion } from 'framer-motion'
 import React from 'react'
 import styled from 'styled-components'
@@ -21,6 +22,9 @@ function About() {
                     <Desc><span style={{ fontSize: '3.4rem', color: 'green' }}>N</span>ot only health and fitness enthusiast, travelling is my another forte when there is no hacking. I often manage time for helping those who want to grow or step-into Security Industry.</Desc>
                 </Right>
             </Container>
+            <Button>
+                <a href="https://guptashubham.com/assets/docs/Shubham.pdf" target="_blank"><Downloading /> Download CV</a>
+            </Button>
         </Main>
     )
 }
@@ -29,6 +33,7 @@ export default About
 
 const Main = styled(motion.div)`
     overflow-x: hidden;
+    min-height: 100vh;
 `
 
 const Container = styled(motion.div)`
@@ -88,7 +93,33 @@ const Intro = styled(motion.div)`
 
 const Desc = styled(motion.div)`
     margin: 6px 0 ;
-    color: grey;
+    /* color: grey; */
     font-size: 20px;
     width: 90%;
+`
+
+const Button = styled(motion.div)`
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+
+    a {
+        box-shadow: 0px 0px 20px white;
+        border-radius: 40px;
+        padding: 16px 24px;
+        text-decoration: none;
+        color: green;
+        font-size: 26px;
+        display: flex;
+        align-items: center;
+        transition: all 200ms ease-in-out;
+        .MuiSvgIcon-root {
+            margin-right: 12px;
+            font-size: 32px !important;
+        }
+    }
+    a:hover {
+        box-shadow: 0px 0px 20px green;
+        color: white;
+    }
 `

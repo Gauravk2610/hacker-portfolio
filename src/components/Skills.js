@@ -133,11 +133,18 @@ const SkillCard = styled.div`
 `
 
 const Circle = styled(motion.div)`
-    max-width: 120px;
+    max-width: 200px;
     width: 100%;
     min-width: 10px;
     padding: 0 24px;
     margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    svg {
+        max-width: 140px;
+    }
 `
 
 const SkillName = styled(motion.div)`

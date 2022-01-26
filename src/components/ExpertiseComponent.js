@@ -120,8 +120,8 @@ const LeftDate = styled.div`
 
 const LeftWrap = styled.div`
     display: flex;
-    max-width: 70%;
-    width: 100%;
+    max-width: 600px;
+    width: 100% !important;
     flex-direction: column;
     &:after {
         content: '';

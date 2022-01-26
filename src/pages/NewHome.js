@@ -97,12 +97,12 @@ const Left = styled(motion.div)`
     font-variant: small-caps;
     min-height: 200px;
     #r {
-        color: white;
+        color: green;
         /* text-decoration: underline; */
     }
 
     #b {
-        color: white;
+        color: green;
     }
 
     .Typewriter__cursor {
@@ -113,17 +113,17 @@ const Left = styled(motion.div)`
     .intro {
         font-size: 38px;
         margin: 1vh 0;
-        color: green;
+        color: white;
     }
     .name {
         font-size: 60px;
         margin: 1.2vh 0;
-        color: green;
+        color: white;
     }
     .desc {
         font-size: 38px;
         margin: 1.6vh 0;
-        color: green;
+        color: white;
     }
     @media (max-width: 640px) {
         margin: 0 0 10vh 0;
