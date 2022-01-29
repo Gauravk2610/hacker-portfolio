@@ -12,7 +12,7 @@ function ExpertiseComponent({ title, timeline, work }) {
                             <LeftDate>{timeline}</LeftDate>
                             <PTitle>{title}</PTitle>
                             {work.map((item, index) => 
-                                <p><span className='dot'>·</span><div>{item}</div></p>
+                                <p><span className='dot'> </span><div className='work'>· {item}</div></p>
                             )}
                         </LeftWrap>
                     </Fade>
@@ -46,6 +46,8 @@ const SectionWrap = styled.div`
         }
         .left-wrap {
             /* margin: 0 48px; */
+            padding-left: 16px;
+
         }
         .right-section {
             justify-content: flex-end;
@@ -56,19 +58,56 @@ const SectionWrap = styled.div`
             padding-bottom: 0;
         }
     }
+    :nth-child(odd) {
+
+        .left-section {
+            margin-right: 4px;
+        }
+
+        .left-wrap {
+            /* margin: 0 48px; */
+            padding-left: 0px;
+            text-align: end;
+        }
+        p{
+            justify-content: flex-end;
+            margin-left: auto;
+        }
+
+    }
+    p {
+        max-width: 460px;
+    }
 
     @media(max-width: 640px) {
+        .left-section {
+            align-items: flex-start;
+        }
+        .left-wrap {
+            padding-left: 0px !important;
+            /* margin: 0 48px; */
+            padding-left: 0px;
+            text-align: end;
+        }
         :nth-child(odd) {
             flex-direction: row-reverse;
             .left-section {
-                align-items: flex-end;
-            }
-            .left-wrap {
-                /* margin: 0 48px; */
+                align-items: flex-start;
             }
             .right-section {
                 justify-content: flex-end;
             }
+            p {
+                margin-left: 0 !important;
+            }
+        }
+        .left-wrap {
+            /* margin: 0 48px; */
+            padding-left: 16px;
+            text-align: start !important;
+        }
+        p{
+            justify-content: flex-start !important;
         }
     }
 
@@ -79,13 +118,17 @@ const Left = styled.div`
     padding: 24px 0;
     display: flex;
     flex-direction: column;
-
     /* align-items: center; */
+
+    .react-reveal {
+        max-width: 540px;
+        width: 100%;
+    }
     p { 
         color: rgba(255,255,255,.5);
         font-weight: 300;
-        margin: 1.0rem 0;
-        margin-bottom: 0.5rem;
+        margin: 0rem 0;
+        /* margin-bottom: 0.5rem; */
         display: flex;
         /* max-width: 60%; */
     }
@@ -120,7 +163,7 @@ const LeftDate = styled.div`
 
 const LeftWrap = styled.div`
     display: flex;
-    max-width: 600px;
+    max-width: 540px;
     width: 100% !important;
     flex-direction: column;
     &:after {
@@ -137,7 +180,8 @@ const LeftWrap = styled.div`
 
 const PTitle = styled.div`
     font-weight: 500;
-    font-size: 24px;
+    font-size: 20px;
+    margin-bottom: 16px;
 `
 
 const Middle = styled.div`

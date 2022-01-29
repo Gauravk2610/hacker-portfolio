@@ -112,7 +112,7 @@ const Container = styled(motion.div)`
 const Title = styled(motion.div)`
     display: flex;
     justify-content: center;
-    font-size: 36px;
+    font-size: 32px;
     font-variant: small-caps;
     /* font-weight: 600; */
 `
@@ -123,7 +123,7 @@ const Wrap = styled(motion.div)`
 
 const SkillCard = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     
     @media (max-width: 760px) {
@@ -136,20 +136,20 @@ const Circle = styled(motion.div)`
     max-width: 200px;
     width: 100%;
     min-width: 10px;
-    padding: 0 24px;
+    padding: 0 20px;
     margin-bottom: 32px;
     display: flex;
     flex-direction: column;
     align-items: center;
 
     svg {
-        max-width: 140px;
+        max-width: 100px;
     }
 `
 
 const SkillName = styled(motion.div)`
     padding: 26px 0;
-    font-size: 24px;
+    font-size: 20px;
     text-align: center;
     color: rgb(255, 255, 255, 0.8);
 `

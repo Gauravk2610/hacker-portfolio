@@ -12,27 +12,27 @@ import AnimatedRoutes from './AnimatedRoutes';
 
 function App() {
 
-  const [showSplash, setShowSplash] = useState(sessionStorage.getItem('splash') === 'false' ? false : true )
+  // const [showSplash, setShowSplash] = useState(sessionStorage.getItem('splash') === 'false' ? false : true )
 
-  // const location = useLocation()
-  useEffect(() => {
-    const splash = sessionStorage.getItem('splash')
-    console.log(splash)
-    if (splash === null) {
-      sessionStorage.setItem('splash', true)
-      setShowSplash(true)
-      return
-    }
-    setShowSplash(splash  === 'false' ? false : true )
+  // // const location = useLocation()
+  // useEffect(() => {
+  //   const splash = sessionStorage.getItem('splash')
+  //   console.log(splash)
+  //   if (splash === null) {
+  //     sessionStorage.setItem('splash', true)
+  //     setShowSplash(true)
+  //     return
+  //   }
+  //   setShowSplash(splash  === 'false' ? false : true )
 
-  }, [])
+  // }, [])
 
   return (
     <div className="App">
       <Router>
-        { !showSplash && <Header /> }
+        <Header />
         <AnimatePresence exitBeforeEnter>
-          <AnimatedRoutes showSplash={showSplash} setShowSplash={setShowSplash} />
+          <AnimatedRoutes />
         </AnimatePresence>
       </Router>
 

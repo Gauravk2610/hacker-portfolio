@@ -69,7 +69,7 @@ const EducationList = [
 function Expertise() {
     return (
         <Container>
-            <Title>My Expertise</Title>
+            <Title>My Experience</Title>
             <Wrap>
                 {
                     EducationList.map((item, index) => 
@@ -165,7 +165,7 @@ const Container = styled(motion.div)`
 const Title = styled(motion.div)`
     display: flex;
     justify-content: center;
-    font-size: 36px;
+    font-size: 32px;
     font-variant: small-caps;
     /* font-weight: 600; */
 `

@@ -2,7 +2,11 @@ import { motion } from 'framer-motion';
 import React from 'react'
 import styled from 'styled-components'
 import Typewriter from 'typewriter-effect';
-import user from '../assests/user.png'
+import hackerspider from '../assests/hackerspider1.PNG'
+import Achievements from '../components/Achievements';
+import Testimonials from '../components/Testimonials';
+import WhatIDo from '../components/WhatIDo';
+
 
 function NewHome() {
     return (
@@ -46,8 +50,8 @@ function NewHome() {
                         <a href="https://www.facebook.com/hackerspider1/">
                             <img align="left" alt="Shubham Facebook" width="22px" src="https://github.com/hackerspider1/hackerspider1/blob/main/facebook.svg?raw=true" />
                         </a>
-                        <a href="https://open.spotify.com/playlist/4VFPUarxug3APc05glP2ou?si=GDLtHkdyRnuaEHALKkdi5w">
-                            <img align="left" alt="Shubham Spotify" width="22px" src="https://github.com/hackerspider1/hackerspider1/blob/main/spotify.svg?raw=true" />
+                        <a href="https://www.instagram.com/hackerspider1/">
+                            <img align="left" alt="Shubham Instagram" width="22px" src="https://github.com/hackerspider1/hackerspider1/blob/main/instagram.svg?raw=true" />
                         </a>
                     </SocialMedia>
                         {/* <Intro>Hello</Intro>
@@ -58,9 +62,12 @@ function NewHome() {
                     <motion.img 
                         initial={{ x: "100%", opacity: 0.4 }}
                         animate={{ x: 0, opacity: 1, transition: { duration: 1.0 } }}
-                        src={user} alt="" />
+                        src={hackerspider} alt="" />
                 </Right>
             </Container>
+            <WhatIDo />
+            <Testimonials />
+            <Achievements />
         </Main>
     )
 }
@@ -72,6 +79,7 @@ const Main = styled(motion.div)``
 const Container = styled(motion.div)`
     width: 80vw;
     margin: 6vh auto;
+    margin-bottom: 0px;
     display: flex;
     justify-content: space-between;
     @media(max-width: 1280px) {
@@ -98,11 +106,14 @@ const Left = styled(motion.div)`
     min-height: 200px;
     #r {
         color: green;
+        font-size: 60px;
         /* text-decoration: underline; */
     }
 
     #b {
         color: green;
+        font-size: 60px;
+
     }
 
     .Typewriter__cursor {
@@ -116,7 +127,7 @@ const Left = styled(motion.div)`
         color: white;
     }
     .name {
-        font-size: 60px;
+        font-size: 38px;
         margin: 1.2vh 0;
         color: white;
     }
@@ -142,7 +153,7 @@ const Left = styled(motion.div)`
 const IntroSection = styled.div`
     height: 300px;
     @media (max-width: 640px) {
-        height: 260px;
+        height: 320px;
     }
 `
 
@@ -178,15 +189,27 @@ const Desc = styled.div`
 const Right = styled.div`
 
     img {
-        width: 32vw;
+        width: 36vw;
         min-width: 320px;
+        max-height: 440px;
+        object-fit: contain;
     }
-
-    @media(max-width: 640px) {
+    @media(max-width: 1024px) {
         img {
-            max-width:  420px;
+            max-width:  880px;
             width: 100%;
             min-width: 260px;
+            max-height: 480px;
+        }
+
+    }
+    @media(max-width: 640px) {
+        img {
+            max-width:  580px;
+            width: 100%;
+            min-width: 260px;
+            max-height: 580px;
+
         }
     }
 `
@@ -202,3 +225,12 @@ const SocialMedia = styled.div`
     }
 
 `
+
+const Title = styled(motion.div)`
+    display: flex;
+    justify-content: center;
+    font-size: 36px;
+    font-variant: small-caps;
+    margin-bottom: 32px;
+`
+

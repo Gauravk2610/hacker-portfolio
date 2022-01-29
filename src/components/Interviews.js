@@ -7,11 +7,21 @@ function Interviews() {
         <Container>
             <Title>My Interview</Title>
             <Wrap>
-                <img src="https://guptashubham.com/assets/my-images/amar-ujala.png" alt="" />
-                <img src="https://guptashubham.com/assets/my-images/News-Chant.png" alt="" />
-                <img src="https://guptashubham.com/assets/my-images/digital_gurujii.jpg" alt="" />
-                <img src="https://guptashubham.com/assets/my-images/iGadgetsworld.png" alt="" />
-                <img src="https://guptashubham.com/assets/my-images/hacker_rank.png" alt="" />
+                <a href="https://www.amarujala.com/amp/delhi-ncr/bashindey/ethical-hacker-shubham-gupta-know-all-about-him" target="_blank">
+                    <img src="https://guptashubham.com/assets/my-images/amar-ujala.png" alt="" />
+                </a>
+                <a href="https://newschant.com/technology/indian-ethical-hacker-shubham-gupta-shares-his-career-journey-and-life-story/" target="_blank">
+                    <img src="https://guptashubham.com/assets/my-images/News-Chant.png" alt="" />
+                </a>
+                <a href="https://www.digitalgurujii.com/interview-with-indian-ethical-hacker-shubham-gupta/" target="_blank">
+                    <img src="https://guptashubham.com/assets/my-images/digital_gurujii.jpg" alt="" />
+                </a>
+                <a href="https://www.igadgetsworld.com/interview-with-yahoo-hall-of-fame-mr-shubham-gupta/" target="_blank">
+                    <img src="https://guptashubham.com/assets/my-images/iGadgetsworld.png" alt="" />
+                </a>
+                <a href="https://www.hackerone.com/blog/Hacker-QA-Shubham-gupta-Patience-and-Passion" target="_blank">
+                    <img src="https://guptashubham.com/assets/my-images/hacker_rank.png" alt="" />
+                </a>
             </Wrap>
         </Container>
     )
@@ -26,7 +36,7 @@ const Container = styled.div`
 const Title = styled(motion.div)`
     display: flex;
     justify-content: center;
-    font-size: 36px;
+    font-size: 32px;
     font-variant: small-caps;
     /* font-weight: 600; */
 `
@@ -36,10 +46,10 @@ const Wrap = styled(motion.div)`
     justify-content: center;
     padding: 24px 0;
     flex-wrap: wrap;
-
+    align-items: center;
     img {
-        max-width: 260px;
-        max-height: 100px;
+        max-width: 200px;
+        max-height: 80px;
         object-fit: contain;
         margin: 16px 24px;
         cursor: pointer;

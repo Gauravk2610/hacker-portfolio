@@ -1,5 +1,6 @@
 {
-  "name": "hacker-portfolio",
+  "name": "shubhamgupta",
+  "homepage": "https://guptashubham.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -15,16 +16,22 @@
     "formik": "^2.2.9",
     "framer-motion": "^5.5.6",
     "gsap": "^3.9.1",
+    "jquery": "^3.6.0",
     "react": "^17.0.2",
     "react-circular-progressbar": "^2.0.4",
+    "react-code-blocks": "0.0.9-0",
+    "react-countup": "^6.1.1",
     "react-dom": "^17.0.2",
     "react-intersection-observer": "^8.33.1",
     "react-move": "^6.5.0",
     "react-reveal": "^1.2.2",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
+    "react-slick": "^0.28.1",
+    "react-visibility-sensor": "^5.1.1",
     "recoil": "^0.5.2",
     "responsive-react-accordion": "^1.1.2",
+    "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.3",
     "typewriter-effect": "^2.18.2",
     "web-vitals": "^2.1.3",
@@ -33,6 +40,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "GENERATE_SOURCEMAP=false react-scripts build",
+    "winBuild": "set \"GENERATE_SOURCEMAP=false\" && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

@@ -1,8 +1,37 @@
+import { KeyboardArrowDown, KeyboardArrowUp } from '@mui/icons-material';
+import { Accordion } from 'responsive-react-accordion';
 import { useFormik } from 'formik';
 import { motion } from 'framer-motion'
 import React from 'react'
 import styled from 'styled-components'
-import ContactUser from '../assests/Contact2.JPG'
+import ContactUser from '../assests/hacker1.gif'
+
+const QNA = [
+    {
+        question: 'What is Bug Bounty?',
+        answer: "A bug bounty is a monetary reward given to ethical hackers for successfully discovering and reporting a vulnerability or bug to the application's developer."
+    },
+    {
+        question: 'How can i become an Hacker?',
+        answer: ""
+    },
+    {
+        question: 'Can i get a JOB after I become an Ethical Hacker?',
+        answer: ""
+    },
+    {
+        question: 'How do I earn money from Ethical Hacking?',
+        answer: ""
+    },
+    {
+        question: 'Can i learn these things in college?',
+        answer: ""
+    },
+    {
+        question: 'How many bugbounty platformsare there?',
+        answer: ""
+    },
+]
 
 function Contact() {
 
@@ -14,7 +43,9 @@ function Contact() {
             message: '',
         },
         onSubmit: async values => {
-            alert(JSON.stringify(values, null, 2));
+            // alert(JSON.stringify(values, null, 2));
+            console.log(values)
+            formik.resetForm()
         },
     });
 
@@ -29,13 +60,13 @@ function Contact() {
                 <Wrap>
                     <Left>
                         <ImgWrap>
-                            <img src={ContactUser} alt="" />
+                            <img src={'https://guptashubham.com/static/media//hacking1.e95ccc8161d528a2db27.gif'} alt="" />
                         </ImgWrap>
                         <TextWrap>
-                            <Intro>We are always open for business</Intro>
-                            <Desc>
-                                We dont hack to impress we hack to express We dont hack to impress we hack to express We dont hack to impress we hack to express We dont hack to impress we hack to express
-                            </Desc>
+                            {/* <Intro>We Don't Hack To Impress We Hack To Express.</Intro> */}
+                            {/* <Desc>
+                                
+                            </Desc> */}
                         </TextWrap>
                     </Left>
                     <Right>
@@ -83,6 +114,21 @@ function Contact() {
                     </Right>
                 </Wrap>
             </Container>
+            <FAQ>
+                <Title style={{ justifyContent: 'center', marginBottom: 32 }}>FAQ</Title>
+                {
+                    QNA.map((data, index) => (
+                        <Accordion 
+                            key={index}
+                            title={data.question} 
+                            content={data.answer} 
+                            openIcon={<KeyboardArrowDown />}
+                            closeIcon={<KeyboardArrowUp />}
+                            spacing={10} 
+                        />
+                    ))
+                }
+            </FAQ>
         </Main>
     )
 }
@@ -118,15 +164,15 @@ const Container = styled(motion.div)`
 
 const Title = styled(motion.div)`
     display: flex;
-    /* justify-content: center; */
-    font-size: 36px;
+    justify-content: center;
+    font-size: 32px;
     font-variant: small-caps;
 `
 
 const Wrap = styled(motion.div)`
     display: flex;
     margin: 26px 0;
-
+    
     @media(max-width: 760px) {
         flex-direction: column;
     }
@@ -137,7 +183,7 @@ const Left  = styled(motion.div)`
 `
 
 const ImgWrap = styled.div`
-    max-width: 560px;
+    max-width: 660px;
     min-width: 260px;
     img {
         width: 100%;
@@ -157,8 +203,8 @@ const TextWrap = styled(motion.div)`
 `
 
 const Intro = styled(motion.div)`
-    font-size: 28px;
-    color: white;
+    font-size: 24px;
+    color: green;
 
 `
 
@@ -179,7 +225,7 @@ const FormWrap = styled(motion.div)`
         display: flex;
         flex-direction: column;
         margin-bottom: 24px;
-        max-width: 100%;
+        max-width: 560px;
         min-width: 120px;
     }
     label {
@@ -226,11 +272,84 @@ const FormWrap = styled(motion.div)`
 
     button {
         padding: 14px 20px;
-        background-color: white;
+        background-color: green;
         font-weight: 600;
         border: none;
         border-radius: 20px;
         cursor: pointer;
-        box-shadow: 4px 4px 10px white;
+        color: white;
+    }
+`
+const FAQ = styled.div`
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    margin: 0vh auto;
+    padding: 0 0 6vh 0;
+    @media(max-width: 1280px) {
+        width: 90vw;
+    }
+    @media(max-width: 1024px) {
+        flex-direction: column;
+        align-items: center;
+    }
+    @media (max-width: 760px) {
+        width: 80vw;
+    }
+    @media (max-width: 420px) {
+        width: 80vw;
+    }
+    .accordion-container {
+        max-width: 700px;
+        width: 100%;
+        margin: 0 auto;
+    }
+    .accordion {
+    /* here you can add a univeral bg color and style the remainig component according */
+    /* example */
+    background-color: #000;
+    border: 2px solid white;
+    border-radius: 12px;
+    color: white;
+    }
+
+    /* .accordion-title this is where the title of accordion is kept */
+    .accordion-title {
+    /* style the title of the accordion  */
+    /* example */
+    font-size: 18px;
+    font-weight: 600;
+    padding: 12px 28px !important;
+    }
+
+    /* .accordion-collapsible the collapsible content */
+    .accordion-collapsible {
+    /* style the content of the accordion */
+    /* example */
+    background-color: black;
+    border-bottom-left-radius: 12px;
+    font-size: 18px;
+    border-bottom-right-radius: 12px;
+    color: white;
+    }
+
+    /* .accordion-icon  the icons in the .accordion-title element */
+    .accordion-icon  {
+    /* to set the size of the icon */
+    /* example */
+    width: 20px;
+    }
+
+    .accordion-active {
+        border-top: 2px solid green;
+    }
+
+    @media (max-width: 420px) {
+        .accordion-title {
+            font-size: 18px !important;
+        }
+        .accordion-collapsible {
+            font-size: 18px;
+        }
     }
 `

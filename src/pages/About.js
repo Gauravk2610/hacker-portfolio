@@ -2,7 +2,7 @@ import { Downloading } from '@mui/icons-material'
 import { motion } from 'framer-motion'
 import React from 'react'
 import styled from 'styled-components'
-import Image from '../assests/ShubhamGupta.PNG'
+import Image from '../assests/hackerspider_about.PNG'
 
 function About() {
     return (
@@ -18,7 +18,7 @@ function About() {
                 <Right>
                     {/* <Intro>Let’s<br /> Introduce About Myself</Intro> */}
                     <Desc><span style={{ fontSize: '3.4rem', color: 'green' }}>A</span> passionate, enthusiastic and self-motivated cybersecurity professional having more than five years of experience as an IT security consultant and researcher. I work on multiple cybersecurity domains including Web-App Security, Network Security, Information Security, Ethical Hacking, Vulnerability Testing etc.</Desc>
-                    <Desc><span style={{ fontSize: '3.4rem', color: 'green' }}>W</span>ith rich experience of working for different public and private ventures pan India and globally (KSA, UAE, Qatar, Hong Kong), presently I’m working as Assistant Manager in Big4. Academically I’m computer graduate (BCA) and have qualified numerous cybersecurity certifications.</Desc>
+                    <Desc><span style={{ fontSize: '3.4rem', color: 'green' }}>W</span>ith rich experience of working for different public and private ventures pan India and globally (KSA, UAE, Qatar, Hong Kong), presently I’m working as Senior Solution Advisor in Big4. Academically I’m computer graduate (BCA) and have qualified numerous cybersecurity certifications.</Desc>
                     <Desc><span style={{ fontSize: '3.4rem', color: 'green' }}>N</span>ot only health and fitness enthusiast, travelling is my another forte when there is no hacking. I often manage time for helping those who want to grow or step-into Security Industry.</Desc>
                 </Right>
             </Container>
@@ -58,7 +58,7 @@ const Container = styled(motion.div)`
 `
 
 const Left = styled(motion.div)`
-    max-width: 600px;
+    max-width: 640px;
     width: 100%;
     /* min-width: 400px; */
     img {
@@ -104,12 +104,12 @@ const Button = styled(motion.div)`
     margin-bottom: 16px;
 
     a {
-        box-shadow: 0px 0px 20px white;
+        background-color: #ed0f76;
         border-radius: 40px;
-        padding: 16px 24px;
+        padding: 8px 22px;
         text-decoration: none;
-        color: green;
-        font-size: 26px;
+        color: white;
+        font-size: 20px;
         display: flex;
         align-items: center;
         transition: all 200ms ease-in-out;
@@ -119,7 +119,6 @@ const Button = styled(motion.div)`
         }
     }
     a:hover {
-        box-shadow: 0px 0px 20px green;
         color: white;
     }
 `
