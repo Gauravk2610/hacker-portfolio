@@ -31,8 +31,8 @@ function Footer() {
 export default Footer;
 
 const Container = styled(motion.div)`
-    width: 80vw;
     border-top: 0.5px solid white;
+    padding: 16px 0;
     margin: 6vh auto;
     margin-bottom: 0px;
     /* display: flex; */
@@ -57,17 +57,19 @@ const SocialMedia = styled.div`
 
     display: flex;
     justify-content: space-between;
-    margin: 20px auto;
+    margin: 10px auto;
     max-width: 300px;
 
     img {
-        width: 32px;
+        width: 26px;
+        height: 36px;
+        object-fit: contain;
     }
 
 `
 
 const CopyWright = styled.div`
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
     @media(max-width: 560px){
         font-size: 15px;
@@ -75,7 +77,7 @@ const CopyWright = styled.div`
 `
 
 const Info = styled.div`
-    margin: 12px 0;
+    margin: 6px 0;
     text-align: center;
     font-size: 14px;
     a {

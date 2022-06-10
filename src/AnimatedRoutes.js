@@ -14,6 +14,9 @@ import Page403 from './pages/Page403';
 import Page404 from './pages/Page404';
 import Footer from './components/Footer';
 import IOSLab from './pages/IOSLab';
+import StartBugBounty from './pages/StartBugBounty';
+import MyMethodology from './pages/MyMethodology';
+import BlogDetail from './pages/BlogDetail';
 
 const AnimatedRoutes = () => {
     const location = useLocation();
@@ -31,11 +34,14 @@ const AnimatedRoutes = () => {
     return (
       <AnimatePresence exitBeforeEnter>
         <Routes location={location} key={location.pathname}>
+            <Route exact path='/resources/My-methodology' element={<MyMethodology />} />
+            <Route exact path='/resources/How-to-start-into-bugbounty' element={<StartBugBounty />} />
             <Route exact path='/resources/Lab-setup-for-IOS-testing' element={<IOSLab />} />
             <Route exact path='/' element={<NewHome />} />
             <Route exact path='/contact' element={<Contact />} />
             <Route exact path='/about' element={<About />} />
             <Route exact path='/resume' element={<Resume />} />
+            <Route exact path='/blog/:slug' element={<BlogDetail />} />
             <Route exact path='/blog' element={<Blog />} />
             <Route exact path='/travel' element={<Travel />} />
             <Route exact path='/403' element={<Splash />} />

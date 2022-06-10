@@ -97,7 +97,7 @@ function Header() {
                             </Link>
                             {
                                 data?.list?.map((item, index) => (
-                                    <Link onClick={() => item?.list ? '' : setShow(!show)} to={data.title.toLowerCase() + '/' + item.split(' ').join('-')}><li key={index} className='dropdown-content'>{item}</li></Link>
+                                    <Link key={index} onClick={() => item?.list ? '' : setShow(!show)} to={data.title.toLowerCase() + '/' + item.split(' ').join('-')}><li key={index} className='dropdown-content'>{item}</li></Link>
                                 ))
                             }
                         </React.Fragment>
@@ -157,7 +157,9 @@ const Logo = styled(motion.div)`
     display: flex;
     align-items: center;
     img {
-        max-width: 60px;
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
     }
 `
 

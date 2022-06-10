@@ -104,7 +104,7 @@ const Button = styled(motion.div)`
     margin-bottom: 16px;
 
     a {
-        background-color: #ed0f76;
+        background-color: green;
         border-radius: 40px;
         padding: 8px 22px;
         text-decoration: none;

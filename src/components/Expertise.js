@@ -29,7 +29,7 @@ const ExperienceList = [
         ]
     },
     {
-        title: 'Delloite India',
+        title: 'Deloitte India',
         timeline: '2018',
         work: [
             'Red Teaming',
@@ -40,7 +40,7 @@ const ExperienceList = [
         ]
     },
     {
-        title: 'Delloite USI',
+        title: 'Deloitte USI',
         timeline: 'current',
         work: [
             'Red Teaming',

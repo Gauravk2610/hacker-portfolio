@@ -2,38 +2,43 @@ import { KeyboardArrowDown, KeyboardArrowUp } from '@mui/icons-material';
 import { Accordion } from 'responsive-react-accordion';
 import { useFormik } from 'formik';
 import { motion } from 'framer-motion'
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import ContactUser from '../assests/hacker1.gif'
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+import { db } from './firebase';
+import toast, { Toaster } from "react-hot-toast";
+
 
 const QNA = [
     {
         question: 'What is Bug Bounty?',
         answer: "A bug bounty is a monetary reward given to ethical hackers for successfully discovering and reporting a vulnerability or bug to the application's developer."
     },
-    {
-        question: 'How can i become an Hacker?',
-        answer: ""
-    },
+    // {
+    //     question: 'How can i become an Hacker?',
+    //     answer: ""
+    // },
     {
         question: 'Can i get a JOB after I become an Ethical Hacker?',
-        answer: ""
+        answer: "Computer experts are often hired by companies to hack into their system to find vulnerabilities and weak endpoints so that they can be fixed."
     },
-    {
-        question: 'How do I earn money from Ethical Hacking?',
-        answer: ""
-    },
-    {
-        question: 'Can i learn these things in college?',
-        answer: ""
-    },
+    // {
+    //     question: 'How do I earn money from Ethical Hacking?',
+    //     answer: ""
+    // },
+    // {
+    //     question: 'Can i learn these things in college?',
+    //     answer: ""
+    // },
     {
         question: 'How many bugbounty platformsare there?',
-        answer: ""
+        answer: "Hackerone, Bugcrowd, Synack, Yogosha, Yeswehack, Intigiri"
     },
 ]
 
 function Contact() {
+    const [loading, setLoading] = useState(false)
 
     const formik = useFormik({
         initialValues: {
@@ -44,8 +49,18 @@ function Contact() {
         },
         onSubmit: async values => {
             // alert(JSON.stringify(values, null, 2));
-            console.log(values)
+            setLoading(true)
+            const { name, email, subject, message} = values
+            addDoc(collection(db, 'contactus'), {
+                name: name,
+                email: email,
+                subject: subject,
+                message: message,
+                timestamp: serverTimestamp()
+            })
+            toast.success("Your message has been sent ")
             formik.resetForm()
+            setLoading(false)
         },
     });
 
@@ -55,12 +70,13 @@ function Contact() {
         animate={{ x: 0, transition: { duration: 1 } }}
         exit={{ x: '-100%', transition: { duration: 1 } }}
         >
+            <Toaster />
             <Container>
                 <Title>Contact</Title>
                 <Wrap>
                     <Left>
                         <ImgWrap>
-                            <img src={'https://guptashubham.com/static/media//hacking1.e95ccc8161d528a2db27.gif'} alt="" />
+                            <img src={'https://guptashubham.com/archieve/assets/gif/hacking.gif'} alt="" />
                         </ImgWrap>
                         <TextWrap>
                             {/* <Intro>We Don't Hack To Impress We Hack To Express.</Intro> */}
@@ -108,7 +124,7 @@ function Contact() {
                                         value={formik.values.message}  
                                         type='text' placeholder='Your Message' required />
                                 </div>
-                                <button type='submit'>Send your message</button>
+                                <button disabled={loading} style={{opacity: loading ? 0.4: 1}} type='submit'>Send your message</button>
                             </form>
                         </FormWrap>
                     </Right>

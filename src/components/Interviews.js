@@ -8,19 +8,19 @@ function Interviews() {
             <Title>My Interview</Title>
             <Wrap>
                 <a href="https://www.amarujala.com/amp/delhi-ncr/bashindey/ethical-hacker-shubham-gupta-know-all-about-him" target="_blank">
-                    <img src="https://guptashubham.com/assets/my-images/amar-ujala.png" alt="" />
+                    <img src="https://guptashubham.com/archieve/assets/my-images/amar-ujala.png" alt="" />
                 </a>
                 <a href="https://newschant.com/technology/indian-ethical-hacker-shubham-gupta-shares-his-career-journey-and-life-story/" target="_blank">
-                    <img src="https://guptashubham.com/assets/my-images/News-Chant.png" alt="" />
+                    <img src="https://guptashubham.com/archieve/assets/my-images/News-Chant.png" alt="" />
                 </a>
                 <a href="https://www.digitalgurujii.com/interview-with-indian-ethical-hacker-shubham-gupta/" target="_blank">
-                    <img src="https://guptashubham.com/assets/my-images/digital_gurujii.jpg" alt="" />
+                    <img src="https://guptashubham.com/archieve/assets/my-images/digital_gurujii.jpg" alt="" />
                 </a>
                 <a href="https://www.igadgetsworld.com/interview-with-yahoo-hall-of-fame-mr-shubham-gupta/" target="_blank">
-                    <img src="https://guptashubham.com/assets/my-images/iGadgetsworld.png" alt="" />
+                    <img src="https://guptashubham.com/archieve/assets/my-images/iGadgetsworld.png" alt="" />
                 </a>
                 <a href="https://www.hackerone.com/blog/Hacker-QA-Shubham-gupta-Patience-and-Passion" target="_blank">
-                    <img src="https://guptashubham.com/assets/my-images/hacker_rank.png" alt="" />
+                    <img src="https://guptashubham.com/archieve/assets/my-images/hacker_rank.png" alt="" />
                 </a>
             </Wrap>
         </Container>

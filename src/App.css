@@ -7,6 +7,16 @@
 
 }
 
+figure {
+  margin: 0;
+}
+
+figure img {
+  max-width: 860px;
+  width: 100%;
+  min-width: 240px;
+}
+
 body {
   color: white;
 }

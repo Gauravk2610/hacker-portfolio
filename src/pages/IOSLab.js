@@ -226,8 +226,8 @@ function IOSLab() {
                         {
                             content?.sub.map((item, index) => (
                                 <React.Fragment key={index}>
-                                <SubTitle>{item?.title}</SubTitle>
-                                <SubSubTitle>{item?.subtitle}</SubSubTitle>
+                                <SubTitle key={index} >{item?.title}</SubTitle>
+                                <SubSubTitle key={index} >{item?.subtitle}</SubSubTitle>
                                 {
                                     item?.content?.map((content, index) => (
                                         <React.Fragment key={index}>

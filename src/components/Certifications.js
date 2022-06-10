@@ -7,8 +7,8 @@ function Certifications() {
         <Container>
             <Title>My Certifications</Title>
             <Wrap>
-                <a href="https://guptashubham.com/assets/docs/OSCP.pdf" target="_blank"><img src="https://guptashubham.com/assets/my-images/oscp.png" alt="" /></a>
-                <a href="https://guptashubham.com/assets/docs/ewptx.pdf" target="_blank"><img src="https://guptashubham.com/assets/my-images/eWPTXv2.png" alt="" /></a>
+                <a href="https://guptashubham.com/assets/docs/OSCP.pdf" target="_blank"><img src="https://guptashubham.com/archieve/assets/my-images/oscp.png" alt="" /></a>
+                <a href="https://guptashubham.com/assets/docs/ewptx.pdf" target="_blank"><img src="https://guptashubham.com/archieve/assets/my-images/eWPTXv2.png" alt="" /></a>
             </Wrap>
         </Container>
     )

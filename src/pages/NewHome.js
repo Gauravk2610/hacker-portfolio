@@ -1,20 +1,47 @@
 import { motion } from 'framer-motion';
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Typewriter from 'typewriter-effect';
 import hackerspider from '../assests/hackerspider1.PNG'
 import Achievements from '../components/Achievements';
 import Testimonials from '../components/Testimonials';
 import WhatIDo from '../components/WhatIDo';
+import Confetti from 'react-confetti'
 
 
 function NewHome() {
+
+    const [bday, setBday] = useState(false)
+
+    const width = window.outerWidth
+    const height = window.outerHeight
+
+    useEffect(() => {
+        const currentDate = new Date();
+        const cDay = currentDate.getDate()
+        const cMonth = currentDate.getMonth() + 1
+
+        if(cDay === 14 && cMonth === 3) setBday(true)
+
+    }, [])
+
     return (
+        <>
         <Main
             initial={{ x: '100%' }}
             animate={{ x: 0, transition: { duration: 1 } }}
             exit={{ x: '-100%', transition: { duration: 1 } }}
         >
+            {
+                bday &&
+                <Confetti
+                    width={width}
+                    height={height}
+                    recycle={false}
+                    numberOfPieces={1000}
+                    tweenDuration={10000}
+                    />
+            }
             <Container>
                 <Left
                     initial={{ x: '-100%', opacity: 0 }}
@@ -69,6 +96,8 @@ function NewHome() {
             <Testimonials />
             <Achievements />
         </Main>
+        </>
+
     )
 }
 
@@ -95,7 +124,8 @@ const Container = styled(motion.div)`
     @media (max-width: 420px) {
         width: 80vw;
     }
-
+    
+    
 `
 
 const Left = styled(motion.div)`
@@ -192,6 +222,7 @@ const Right = styled.div`
         width: 36vw;
         min-width: 320px;
         max-height: 440px;
+        height: 100%;
         object-fit: contain;
     }
     @media(max-width: 1024px) {
@@ -200,6 +231,7 @@ const Right = styled.div`
             width: 100%;
             min-width: 260px;
             max-height: 480px;
+            height: 100%;
         }
 
     }
@@ -222,6 +254,8 @@ const SocialMedia = styled.div`
 
     img {
         width: 32px;
+        height: 36px;
+        object-fit: contain;
     }
 
 `

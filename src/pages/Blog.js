@@ -1,43 +1,63 @@
 import { style } from '@mui/system';
 import { motion } from 'framer-motion';
-import React from 'react';
-import styled from 'styled-components';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import styled, { keyframes } from 'styled-components';
+import client from '../client';
 
 function Blog() {
+
+    const [posts, setPosts] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
+    useEffect(() => {
+        client
+          .fetch(
+            `*[_type == "post"] {
+            title,
+            slug,
+            body,
+            categories,
+            publishedAt,
+            mainImage {
+              asset -> {
+                _id,
+                url
+              },
+              alt
+            }
+          }`
+          )
+          .then((data) => setPosts(data))
+          .catch(console.error)
+          setTimeout(() => {
+              setIsLoading(false)
+          }, 400);
+    }, [])
+
   return (
     <Container>
-        <BlogCard>
-            <img src="https://media.istockphoto.com/photos/cyber-attack-a05-picture-id486818628?k=6&m=486818628&s=170667a&w=0&h=UeAdHnrHlJ99V1KL7Y935v9CRNuZjLaM59Myc9PrM1w=" alt="" />
-            <Detail  className='details'>
-                <Title>The Synack Platform Expands to Confront the Cyber Skills Gap</Title>
-                <Category>Bug Bounty</Category>
-                <Date>12 OCTOBER</Date>
-            </Detail>
-        </BlogCard>
-        <BlogCard>
-            <img src="https://cdnm.synack.com/wp-content/uploads/2021/11/malcolm-stagg-blog-top-image-285x180.jpg" alt="" />
-            <Detail>
-                <Title>The Synack Platform Expands to Confront the Cyber Skills Gap</Title>
-                <Category>Bug Bounty</Category>
-                <Date>12 OCTOBER</Date>
-            </Detail>
-        </BlogCard>
-        <BlogCard>
-            <img src="https://cdnm.synack.com/wp-content/uploads/2021/11/malcolm-stagg-blog-top-image-285x180.jpg" alt="" />
-            <Detail>
-                <Title>The Synack Platform Expands to Confront the Cyber Skills Gap</Title>
-                <Category>Bug Bounty</Category>
-                <Date>12 OCTOBER</Date>
-            </Detail>
-        </BlogCard>
-        <BlogCard>
-            <img src="https://cdnm.synack.com/wp-content/uploads/2021/11/malcolm-stagg-blog-top-image-285x180.jpg" alt="" />
-            <Detail>
-                <Title>The Synack Platform Expands to Confront the Cyber Skills Gap</Title>
-                <Category>Bug Bounty</Category>
-                <Date>12 OCTOBER</Date>
-            </Detail>
-        </BlogCard>
+        {
+            isLoading ? 
+            <Loading>
+                <Kali 
+                    src='https://ih0.redbubble.net/image.208539360.1700/sticker,375x360.png'>
+                </Kali>
+            </Loading>
+            :
+            posts.map((post, index) => 
+                <BlogCard key={index}>
+                    <Link style={{display: 'flex', flex: 1}} to={`/blog/${post.slug.current}`}>
+                        <img src={post.mainImage.asset.url} alt="" />
+                        <Detail  className='details'>
+                            <Title>{post.title}</Title>
+                            <Category>Bug Bounty</Category>
+                            <Date>{post.publishedAt}</Date>
+                        </Detail>
+                    </Link>
+                </BlogCard>
+            )
+            }
+                
     </Container>
   );
 }
@@ -56,6 +76,11 @@ const BlogCard = styled(motion.div)`
     margin-bottom: 26px;
     position: relative;
     
+    a {
+        color: inherit;
+        text-decoration: none
+    }
+
     img {
         max-width: 420px;
         width: 100%;
@@ -97,7 +122,9 @@ const BlogCard = styled(motion.div)`
 
     @media(max-width: 760px) {
         flex-direction: column;
-        
+        a {
+           flex-direction: column;
+        }
         img {
             max-width: 100%;
             max-height: 160px;
@@ -132,4 +159,33 @@ const Date = styled(motion.div)`
     margin: 10px 0;
     color: gray;
     font-weight: bold;
+`
+
+const rotate = keyframes`
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+`
+
+const Loading = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+
+`
+
+const Kali = styled(motion.img)`
+    cursor: pointer;
+    /* margin: 0 auto; */
+    width: 160px;
+    animation: ${rotate} infinite 1s linear;
+    transition: all 0.6s ease-in-out;
+    /* box-shadow: 0px 0px 20px white;
+    border-radius: 200%;
+    border: 2px solid black; */
+
 `
