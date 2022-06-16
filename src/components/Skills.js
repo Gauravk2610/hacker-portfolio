@@ -6,6 +6,7 @@ import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import AnimatedProgressProvider from './AnimatedProgressProvider';
 import { easeQuadInOut } from "d3-ease";
+import VisibilitySensor from "react-visibility-sensor";
 
 const draw = {
     hidden: { pathLength: 0, opacity: 0 },
@@ -82,15 +83,25 @@ function Skills() {
                             {(value) => {
                                 const roundedValue = Math.round(value);
                                 return (
-                                <CircularProgressbar
-                                    value={value}
-                                    text={`${roundedValue}%`}
-                                    /* This is important to include, because if you're fully managing the
-                                animation yourself, you'll want to disable the CSS animation. */
-                                    styles={buildStyles({ pathTransition: "none" })}
-                                >
-                                
-                                </CircularProgressbar>
+                                <VisibilitySensor>
+
+                                    {({ isVisible }) => {
+                                        const percentage = isVisible ? roundedValue : 0;
+                                        return (
+                                            <CircularProgressbar
+                                            value={percentage}
+                                            text={`${percentage}%`}
+                                            styles={{
+                                                path: {
+                                                    transition: 'stroke-dashoffset 0.8s ease 0s',
+                                                }
+                                            }}
+
+                                            />
+                                        );
+                                    }}
+                                    
+                                </VisibilitySensor>
                                 );
                             }}
                         </AnimatedProgressProvider>

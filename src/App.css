@@ -22,7 +22,9 @@ body {
 }
 
 .App {
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
+  font-family: 'Kanit', sans-serif;
+
 }
 
 .decorated-text {

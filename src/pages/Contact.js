@@ -32,7 +32,7 @@ const QNA = [
     //     answer: ""
     // },
     {
-        question: 'How many bugbounty platformsare there?',
+        question: 'How many bugbounty platforms are there?',
         answer: "Hackerone, Bugcrowd, Synack, Yogosha, Yeswehack, Intigiri"
     },
 ]

@@ -8,6 +8,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import { motion } from 'framer-motion';
 import kali from '../assests/kali.png'
 import urlBuilder from '@sanity/image-url'
+import moment from 'moment';
 import { getImageDimensions } from '@sanity/asset-utils'
 
 const builder = imageUrlBuilder(client);
@@ -44,6 +45,7 @@ function BlogDetail() {
           `*[slug.current == "${slug}"] {
           title,
           body,
+          publishedAt,
           mainImage {
             asset -> {
               _id,
@@ -54,6 +56,11 @@ function BlogDetail() {
         }`
         )
         .then((data) => setSinglePost(data[0]))
+      client
+        .fetch(
+          `*[slug.current == "${slug}"]`
+        )
+        .then((data) => console.log(data))
       setIsLoading(false)
     }, [slug])
 
@@ -80,21 +87,41 @@ function BlogDetail() {
 
                 :
                 <>
-                    <Title>{singlePost?.title}</Title>
-                    <PortableText 
-                      value={singlePost?.body}
-                      components={{
-                        block: {
-                          // h3: ({children}) => <h1>{children}</h1>  
-                        },
-                        types: {
-                          // image: SampleImageComponent,
-                          image: ({value}) => <BlogImage  src={urlBuilder(client).image(value).url()} />,
-                        },
-                      }}
-                      projectId="mr5wnv0b"
-                      dataset="production"
-                    />
+                  <Blog>
+                    <BlogContent>
+                      <BlogTitle>{singlePost?.title}</BlogTitle>
+                      <BlogDate>{moment(singlePost?.publishedAt).format('Do MMMM YYYY')}</BlogDate>
+                      <PortableText 
+                        value={singlePost?.body}
+                        components={{
+                          
+                          block: {
+                            h1: ({children}) => <h1 className="">{children}</h1>,
+                            blockquote: ({children}) => <RenderBlockQuote className="code">{children}</RenderBlockQuote>
+                          },
+                          types: {
+                            // image: SampleImageComponent,
+                            image: ({value}) => <BlogImage  src={urlBuilder(client).image(value).url()} />,
+                          },
+                        }}
+                        projectId="mr5wnv0b"
+                        dataset="production"
+                        />
+                      </BlogContent>
+                      <BlogRedirects>
+                        <div className='sticky'>
+                          <Discord>
+                            <MdTitle>Community</MdTitle>
+                            <SmDesc>Get help, raise issues and connect with people</SmDesc>
+                            <RedirectButton className='discord' href='https://discord.gg/QTRjdpxFTE' target={'_blank'}  rel="noopener noreferrer">Join our Discord</RedirectButton>
+                          </Discord>
+                          <Discord>
+                            <MdTitle>Chit Chat</MdTitle>
+                            <SmDesc>Connect and interact and track cyber security</SmDesc>
+                            <RedirectButton className='telegram' href='https://t.me/hackerspider1337' target={'_blank'}  rel="noopener noreferrer">Telegram Group</RedirectButton>
+                          </Discord>
+                        </div>
+                      </BlogRedirects>
 
                     {/* <BlockContent
                         blocks={singlePost?.body}
@@ -102,6 +129,8 @@ function BlogDetail() {
                         dataset="production"
                         serializers={serializers}
                     /> */}
+                  </Blog>
+                  
                 </>
             }
             {console.log(singlePost)}
@@ -127,6 +156,14 @@ const Container = styled.div`
     }
     @media (max-width: 420px) {
         width: 80vw;
+    }
+
+    p {
+      font-family: 'Kanit', sans-serif;
+      font-weight: 300;
+      color: rgb(209, 209, 209);
+      font-size: 18px;
+      word-wrap: break-word;
     }
 `
 const Title = styled.div`
@@ -165,7 +202,124 @@ const Kali = styled(motion.img)`
 
 `
 
+const Blog = styled.div`
+  display: flex;
+  position: relative;
+  @media(max-width: 1064px) {
+    flex-direction: column;
+  }
+`
+
 const BlogImage = styled.img`
+  width: auto;
+  max-width: 720px;
+  min-width: 260px;
+  height: auto;
+  @media(max-width: 836px) {
+    width: 100%;
+  }
+`
+
+const BlogContent = styled.div`
+  /* max-width: 800px; */
   width: 100%;
-  height: 100%;
+  margin-right: 64px;
+  flex: 0.7;
+  @media(max-width: 1064px) {
+    margin-right: 0px;
+    flex: 1;
+  }
+`
+
+const BlogRedirects = styled.div`
+  max-width: 420px;
+  flex: 0.3;
+  margin: 48px auto;
+  .sticky {
+    position: sticky !important;
+    position: -webkit-sticky;
+    top: 120px;
+  }
+  @media(max-width: 1064px) {
+    flex: 1;
+  }
+
+`
+
+const Discord = styled.div`
+  margin-bottom: 48px;
+  .discord {
+    background-color: rgb(86, 97, 245);
+  }
+  
+  .telegram {
+    background-color: #0088CC;
+  }
+  
+
+`
+
+const MdTitle = styled.h3`
+  font-family: "Kanit", sans-serif;
+  font-weight: 700;
+  font-size: 42px;
+  text-transform: uppercase;
+  margin: 0;
+  text-align: center;
+`
+
+const SmDesc = styled.div`
+  font-family: "Kanit", sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 1rem;
+`
+
+const RedirectButton = styled.a`
+  font-family: "Kanit", sans-serif;
+  text-align: center;
+  display: flex;
+  width: 100%;
+  cursor: pointer;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+  justify-content: center;
+  padding: 12px 12px;
+  font-size: 28px;
+
+`
+
+const BlogTitle = styled.h1`
+  font-weight: 700;
+  font-family: 'Kanit', sans-serif;
+  font-size: 54px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+`
+
+const BlogDate = styled.div`
+  font-family: 'Kanit', sans-serif;
+  /* font-weight: 300; */
+  margin-top: 10px;
+  font-kerning: auto;
+  font-stretch: 100%;
+  font-style: normal;
+  letter-spacing: 0px;
+  /* line-height: 1.5; */
+  color: green;
+  text-decoration: none;
+  font-size: 15px;
+`
+
+const RenderBlockQuote = styled.blockquote`
+  margin: 10px 0;
+  font-family: 'Kanit', sans-serif;
+  padding: 12px 24px;
+  border-radius: 4px;
+  background: #272727;
+  color: #5661f5;
+  font-size: 18px;
+  word-break: break-word;
 `

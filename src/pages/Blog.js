@@ -44,18 +44,20 @@ function Blog() {
                 </Kali>
             </Loading>
             :
-            posts.map((post, index) => 
-                <BlogCard key={index}>
-                    <Link style={{display: 'flex', flex: 1}} to={`/blog/${post.slug.current}`}>
-                        <img src={post.mainImage.asset.url} alt="" />
-                        <Detail  className='details'>
-                            <Title>{post.title}</Title>
-                            <Category>Bug Bounty</Category>
-                            <Date>{post.publishedAt}</Date>
-                        </Detail>
-                    </Link>
-                </BlogCard>
-            )
+            <BlogsList>
+                {posts.map((post, index) => 
+                    <BlogCard key={index}>
+                        <Link style={{display: 'flex', flex: 1}} to={`/blog/${post.slug.current}`}>
+                            <img src={post.mainImage.asset.url} alt="" />
+                            <Detail  className='details'>
+                                <Title>{post.title}</Title>
+                                <Category>Bug Bounty</Category>
+                                <Date>{post.publishedAt}</Date>
+                            </Detail>
+                        </Link>
+                    </BlogCard>
+                )}
+            </BlogsList>
             }
                 
     </Container>
@@ -67,6 +69,13 @@ export default Blog;
 const Container = styled(motion.div)`
     width: 80vw;
     margin: 1vh auto;
+    font-family: 'Kanit', sans-serif;
+`
+
+const BlogsList = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 `
 
 const BlogCard = styled(motion.div)`
@@ -75,7 +84,10 @@ const BlogCard = styled(motion.div)`
     transition: all 200ms ease-in-out;
     margin-bottom: 26px;
     position: relative;
-    
+    max-width: 460px;
+    width: 100%;
+    margin: 0 16px ;
+    margin-bottom: 16px;
     a {
         color: inherit;
         text-decoration: none
@@ -87,11 +99,12 @@ const BlogCard = styled(motion.div)`
 
         max-height: 200px;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
         margin-right: 42px;
     }
     :first-child {
         flex-direction: column;
+        max-width: 100%;
         img {
             max-width: 100%;
             min-height: 420px;
@@ -120,7 +133,7 @@ const BlogCard = styled(motion.div)`
         box-shadow: 0px 0px 10px 1px green;
     }
 
-    @media(max-width: 760px) {
+    /* @media(max-width: 760px) { */
         flex-direction: column;
         a {
            flex-direction: column;
@@ -129,6 +142,9 @@ const BlogCard = styled(motion.div)`
             max-width: 100%;
             max-height: 160px;
         }
+    /* } */
+    @media(max-width: 1200px) {
+        max-width: 360px;
     }
 `
 
@@ -136,7 +152,8 @@ const Detail = styled(motion.div)`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 760px;
+    /* max-width: 760px; */
+    padding: 0 16px;
 
     @media(max-width: 760px) {
         padding: 10px 16px;
