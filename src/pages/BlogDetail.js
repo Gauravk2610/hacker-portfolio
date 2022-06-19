@@ -299,6 +299,10 @@ const BlogTitle = styled.h1`
   text-transform: uppercase;
   margin-bottom: 5px;
   word-wrap: break-word;
+
+  @media(max-width: 5650px) {
+    font-size: 32px;
+  }
 `
 
 const BlogDate = styled.div`

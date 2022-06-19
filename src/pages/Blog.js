@@ -17,7 +17,7 @@ function Blog() {
             title,
             slug,
             body,
-            categories,
+            "categories": categories[]->title,
             publishedAt,
             mainImage {
               asset -> {
@@ -52,7 +52,7 @@ function Blog() {
                             <img src={post.mainImage.asset.url} alt="" />
                             <Detail  className='details'>
                                 <Title>{post.title}</Title>
-                                <Category>Bug Bounty</Category>
+                                <Category>{post?.categories}</Category>
                                 <Date>{moment(post?.publishedAt).format('Do MMMM YYYY')}</Date>
                             </Detail>
                         </Link>
@@ -163,9 +163,16 @@ const Detail = styled(motion.div)`
 `
 
 const Title = styled(motion.div)`
+    font-weight: 700;
+    font-family: 'Kanit', sans-serif;
     font-size: 26px;
     margin: 10px 0;
     text-align: center;
+    text-transform: uppercase;
+    @media(max-width: 5650px) {
+        font-size: 22px;
+    }
+
 `
 
 const Category = styled(motion.div)`
