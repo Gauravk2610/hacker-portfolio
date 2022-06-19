@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 import client from '../client';
+import moment from 'moment';
 
 function Blog() {
 
@@ -12,7 +13,7 @@ function Blog() {
     useEffect(() => {
         client
           .fetch(
-            `*[_type == "post"] {
+            `*[_type == "post"] | order(_createdAt desc) {
             title,
             slug,
             body,
@@ -52,7 +53,7 @@ function Blog() {
                             <Detail  className='details'>
                                 <Title>{post.title}</Title>
                                 <Category>Bug Bounty</Category>
-                                <Date>{post.publishedAt}</Date>
+                                <Date>{moment(post?.publishedAt).format('Do MMMM YYYY')}</Date>
                             </Detail>
                         </Link>
                     </BlogCard>
@@ -152,6 +153,7 @@ const Detail = styled(motion.div)`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     /* max-width: 760px; */
     padding: 0 16px;
 
@@ -163,6 +165,7 @@ const Detail = styled(motion.div)`
 const Title = styled(motion.div)`
     font-size: 26px;
     margin: 10px 0;
+    text-align: center;
 `
 
 const Category = styled(motion.div)`
