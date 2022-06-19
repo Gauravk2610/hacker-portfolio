@@ -3,10 +3,12 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Typewriter from 'typewriter-effect';
 import hackerspider from '../assests/hackerspider1.PNG'
+import hackerspiderHighRes from '../assests/HackerSpider_highres.png'
 import Achievements from '../components/Achievements';
 import Testimonials from '../components/Testimonials';
 import WhatIDo from '../components/WhatIDo';
 import Confetti from 'react-confetti'
+import ProgressiveImage from 'react-progressive-image';
 
 
 function NewHome() {
@@ -86,10 +88,21 @@ function NewHome() {
                         <Desc></Desc> */}
                 </Left>
                 <Right>
-                    <motion.img 
+                <ProgressiveImage src={hackerspiderHighRes} >
+                    {(src, loading) => (
+                        <motion.img 
+                            initial={{ x: "100%", opacity: 0.4 }}
+                            animate={{ x: 0, opacity: 1, transition: { duration: 1.0 } }}
+                            style={{ opacity: loading ? 0.5 : 1 }} 
+                            src={src} 
+                            alt="" 
+                        />
+                    )}
+                </ProgressiveImage>
+                    {/* <motion.img 
                         initial={{ x: "100%", opacity: 0.4 }}
                         animate={{ x: 0, opacity: 1, transition: { duration: 1.0 } }}
-                        src={hackerspider} alt="" />
+                        src={hackerspider} alt="" /> */}
                 </Right>
             </Container>
             <WhatIDo />

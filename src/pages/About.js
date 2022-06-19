@@ -1,8 +1,10 @@
 import { Downloading } from '@mui/icons-material'
 import { motion } from 'framer-motion'
 import React from 'react'
+import ProgressiveImage from 'react-progressive-image'
 import styled from 'styled-components'
 import Image from '../assests/hackerspider_about.PNG'
+import ImageHighRes from '../assests/hackerspider_about_highres.png'
 
 function About() {
     return (
@@ -13,7 +15,15 @@ function About() {
         >
             <Container>
                 <Left>
-                    <img src={Image} alt="" />
+                <ProgressiveImage src={ImageHighRes} >
+                    {(src, loading) => (
+                        <img 
+                            style={{ opacity: loading ? 0.5 : 1 }} 
+                            src={src} 
+                            alt="" 
+                        />
+                    )}
+                </ProgressiveImage>
                 </Left>
                 <Right>
                     {/* <Intro>Let’s<br /> Introduce About Myself</Intro> */}

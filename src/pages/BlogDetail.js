@@ -164,6 +164,7 @@ const Container = styled.div`
       color: rgb(209, 209, 209);
       font-size: 18px;
       word-wrap: break-word;
+      word-break: break-all;
     }
 `
 const Title = styled.div`
@@ -297,6 +298,7 @@ const BlogTitle = styled.h1`
   font-size: 54px;
   text-transform: uppercase;
   margin-bottom: 5px;
+  word-wrap: break-word;
 `
 
 const BlogDate = styled.div`
