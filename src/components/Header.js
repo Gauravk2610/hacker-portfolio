@@ -20,7 +20,7 @@ const MenuItem = [
     }, 
     {
         title: 'Resources',
-        list: ['My methodology', 'How to start into bugbounty', 'Lab setup for IOS testing']
+        list: ['My methodology', 'How to start into bugbounty']
     }, 
     {
         title: 'Contact',

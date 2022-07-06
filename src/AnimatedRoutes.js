@@ -36,7 +36,7 @@ const AnimatedRoutes = () => {
         <Routes location={location} key={location.pathname}>
             <Route exact path='/resources/My-methodology' element={<MyMethodology />} />
             <Route exact path='/resources/How-to-start-into-bugbounty' element={<StartBugBounty />} />
-            <Route exact path='/resources/Lab-setup-for-IOS-testing' element={<IOSLab />} />
+            {/* <Route exact path='/resources/Lab-setup-for-IOS-testing' element={<IOSLab />} /> */}
             <Route exact path='/' element={<NewHome />} />
             <Route exact path='/contact' element={<Contact />} />
             <Route exact path='/about' element={<About />} />
